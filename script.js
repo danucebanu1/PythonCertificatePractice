@@ -25,7 +25,7 @@ function loadQuestion(){
     document.getElementById("question").innerText = q.question;
     document.getElementById("code").innerText = q.code || "";
 
-    // Shuffle answers but keep original index
+    // shuffle answers
     let shuffled = q.options.map((opt,i)=>({
         text: opt,
         originalIndex: i
@@ -36,10 +36,13 @@ function loadQuestion(){
     let answers="";
 
     shuffled.forEach((opt,i)=>{
-        answers += `<div class="option" 
-        id="opt-${i}" 
+        answers += `
+        <div class="option"
+        id="opt-${i}"
         data-original="${opt.originalIndex}"
-        onclick="checkAnswer(${i})">${opt.text}</div>`;
+        onclick="checkAnswer(${i})">
+        ${opt.text}
+        </div>`;
     });
 
     document.getElementById("answers").innerHTML = answers;
@@ -47,7 +50,7 @@ function loadQuestion(){
 }
 
 function prevQuestion(){
-    if(current>0){
+    if(current > 0){
         current--;
         loadQuestion();
     }
@@ -74,36 +77,36 @@ function checkAnswer(i){
     let q = questions[current];
     let options = document.getElementsByClassName("option");
 
+    // disable clicking again
     for(let opt of options){
-        opt.style.pointerEvents="none";
+        opt.style.pointerEvents = "none";
     }
 
     let chosen = options[i].dataset.original;
 
     if(Number(chosen) === q.correct_index){
 
-        options[i].style.background="#d4edda";
+        options[i].classList.add("correct");
 
         document.getElementById("feedback").innerHTML =
-        `<span style="color:green">✔ Correct!</span><br>
+        `<span style="color:#2ecc71">✔ Correct!</span><br>
         <p>${q.explanation || ""}</p>`;
 
         score++;
 
     }else{
 
-        options[i].style.background="#f8d7da";
+        options[i].classList.add("wrong");
 
         // highlight correct answer
         for(let opt of options){
-
             if(Number(opt.dataset.original) === q.correct_index){
-                opt.style.background="#d4edda";
+                opt.classList.add("correct");
             }
         }
 
         document.getElementById("feedback").innerHTML =
-        `<span style="color:red">✖ Incorrect.</span><br>
+        `<span style="color:#ff4d4f">✖ Incorrect.</span><br>
         <p>${q.explanation || ""}</p>`;
     }
 }
@@ -120,6 +123,5 @@ function goToQuestion(){
     }else{
 
         alert("Question not found");
-
     }
 }
