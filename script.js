@@ -2,126 +2,181 @@ let questions = [];
 let current = 0;
 let score = 0;
 
+let totalPoints = 1000;
+let passingScore = 700;
+let points = 0;
+
+let pointsPerQuestion;
+let questionResults = [];
+
 fetch("questions3.json")
 .then(res => res.json())
 .then(data => {
-    questions = data;
-    loadQuestion();
+
+questions = data;
+
+pointsPerQuestion = Math.floor(totalPoints / questions.length);
+
+questionResults = new Array(questions.length).fill(null);
+
+createStatusBoxes();
+
+loadQuestion();
+
 });
+
+function createStatusBoxes(){
+
+let container = document.getElementById("questionStatus");
+
+for(let i=0;i<questions.length;i++){
+
+let box = document.createElement("div");
+box.className="statusBox";
+box.id="status-"+i;
+
+container.appendChild(box);
+
+}
+
+}
 
 function loadQuestion(){
 
-    let q = questions[current];
+let q = questions[current];
 
-    if(current > 0){
-        document.getElementById("prevBtn").style.display = "inline-block";
-    }else{
-        document.getElementById("prevBtn").style.display = "none";
-    }
+document.getElementById("question-number").innerText =
+`Question ${current+1} of ${questions.length}`;
 
-    document.getElementById("question-number").innerText =
-        `Question ${current+1} of ${questions.length}`;
+document.getElementById("question").innerText = q.question;
 
-    document.getElementById("question").innerText = q.question;
-    document.getElementById("code").innerText = q.code || "";
+document.getElementById("code").innerText = q.code || "";
 
-    // shuffle answers
-    let shuffled = q.options.map((opt,i)=>({
-        text: opt,
-        originalIndex: i
-    }));
+let progress = (current / questions.length) * 100;
+document.getElementById("progress").style.width = progress + "%";
 
-    shuffled.sort(()=>Math.random()-0.5);
+let shuffled = q.options.map((opt,i)=>({
+text: opt,
+originalIndex: i
+}));
 
-    let answers="";
+shuffled.sort(()=>Math.random()-0.5);
 
-    shuffled.forEach((opt,i)=>{
-        answers += `
-        <div class="option"
-        id="opt-${i}"
-        data-original="${opt.originalIndex}"
-        onclick="checkAnswer(${i})">
-        ${opt.text}
-        </div>`;
-    });
+let answers="";
 
-    document.getElementById("answers").innerHTML = answers;
-    document.getElementById("feedback").innerHTML = "";
+shuffled.forEach(opt=>{
+
+answers += `
+<div class="option"
+data-original="${opt.originalIndex}"
+onclick="checkAnswer(this)">
+${opt.text}
+</div>`;
+
+});
+
+document.getElementById("answers").innerHTML = answers;
+
+document.getElementById("feedback").innerHTML="";
 }
 
-function prevQuestion(){
-    if(current > 0){
-        current--;
-        loadQuestion();
-    }
+function checkAnswer(el){
+
+let q = questions[current];
+
+let options = document.querySelectorAll(".option");
+
+options.forEach(o=>o.style.pointerEvents="none");
+
+let chosen = el.dataset.original;
+
+if(Number(chosen) === q.correct_index){
+
+el.classList.add("correct");
+
+questionResults[current]="correct";
+
+document.getElementById("status-"+current)
+.classList.add("correct");
+
+points += pointsPerQuestion;
+score++;
+
+}else{
+
+el.classList.add("wrong");
+
+questionResults[current]="wrong";
+
+document.getElementById("status-"+current)
+.classList.add("wrong");
+
+options.forEach(opt=>{
+if(Number(opt.dataset.original) === q.correct_index){
+opt.classList.add("correct");
+}
+});
+
+}
+
+document.getElementById("points").innerText = points;
+
 }
 
 function nextQuestion(){
 
-    current++;
+current++;
 
-    if(current >= questions.length){
+if(current >= questions.length){
 
-        document.getElementById("quiz").innerHTML =
-        `<h2>Quiz Finished!</h2>
-        <h3>Final Score: ${score} / ${questions.length}</h3>`;
+let percent = Math.round((points / totalPoints) * 100);
 
-        return;
-    }
+let passed = points >= passingScore ? "PASSED" : "FAILED";
 
-    loadQuestion();
+document.getElementById("quiz").innerHTML = `
+
+<h2>Exam Finished</h2>
+
+<p><strong>Score:</strong> ${points} / ${totalPoints}</p>
+
+<p><strong>Percentage:</strong> ${percent}%</p>
+
+<h2>Status: ${passed}</h2>
+
+<p>Correct Answers: ${score} / ${questions.length}</p>
+
+`;
+
+return;
+
 }
 
-function checkAnswer(i){
+loadQuestion();
 
-    let q = questions[current];
-    let options = document.getElementsByClassName("option");
+}
 
-    // disable clicking again
-    for(let opt of options){
-        opt.style.pointerEvents = "none";
-    }
+function prevQuestion(){
 
-    let chosen = options[i].dataset.original;
+if(current>0){
 
-    if(Number(chosen) === q.correct_index){
+current--;
 
-        options[i].classList.add("correct");
+loadQuestion();
 
-        document.getElementById("feedback").innerHTML =
-        `<span style="color:#2ecc71">✔ Correct!</span><br>
-        <p>${q.explanation || ""}</p>`;
+}
 
-        score++;
-
-    }else{
-
-        options[i].classList.add("wrong");
-
-        // highlight correct answer
-        for(let opt of options){
-            if(Number(opt.dataset.original) === q.correct_index){
-                opt.classList.add("correct");
-            }
-        }
-
-        document.getElementById("feedback").innerHTML =
-        `<span style="color:#ff4d4f">✖ Incorrect.</span><br>
-        <p>${q.explanation || ""}</p>`;
-    }
 }
 
 function goToQuestion(){
 
-    let num = document.getElementById("searchQuestion").value;
+let num = document.getElementById("searchQuestion").value;
 
-    if(num >= 1 && num <= questions.length){
+if(num>=1 && num<=questions.length){
 
-        current = num - 1;
-        loadQuestion();
+current = num-1;
 
-    }else{
+loadQuestion();
 
-        alert("Question not found");
-    }
+}
+
 }
