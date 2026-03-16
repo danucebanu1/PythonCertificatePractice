@@ -1,4 +1,4 @@
-/* Global */
+/* ===== GLOBAL ===== */
 
 body{
     margin:0;
@@ -12,7 +12,7 @@ body{
     align-items:center;
 }
 
-/* Title */
+/* ===== TITLE ===== */
 
 h1{
     position:absolute;
@@ -23,7 +23,7 @@ h1{
     color:#ffffff;
 }
 
-/* Main card */
+/* ===== MAIN CARD ===== */
 
 #quiz{
     width:750px;
@@ -36,7 +36,7 @@ h1{
     0 25px 60px rgba(0,0,0,.6);
 }
 
-/* Question number */
+/* ===== QUESTION NUMBER ===== */
 
 #question-number{
     font-size:14px;
@@ -44,60 +44,80 @@ h1{
     margin-bottom:10px;
 }
 
-/* Question text */
+/* ===== QUESTION TEXT ===== */
 
 #question{
     font-size:20px;
     font-weight:500;
-    margin-bottom:15px;
+    margin-bottom:16px;
 }
 
-/* Code block */
+/* ===== CODE BLOCK (LIKE REAL CODE) ===== */
 
 #code{
     background:#0b0d11;
-    padding:14px;
+    border:1px solid #2a2f3a;
     border-radius:8px;
-    font-family:monospace;
-    color:#7dd3fc;
+
+    padding:16px 18px;
     margin-bottom:22px;
+
+    font-family:"JetBrains Mono","Fira Code","Source Code Pro",monospace;
+    font-size:14px;
+    line-height:1.6;
+
+    color:#d1d5db;
+
+    white-space:pre-wrap;
+    overflow-x:auto;
 }
 
-/* Answer options */
+/* language label */
+
+#code::before{
+    content:"Python";
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:8px;
+}
+
+/* ===== ANSWER OPTIONS ===== */
 
 .option{
     padding:14px;
     border-radius:8px;
     border:1px solid #2a2f3a;
     margin-bottom:10px;
+
     cursor:pointer;
     transition:all .15s ease;
 
     color:#e6e6e6;
 }
 
-/* Hover */
+/* hover */
 
 .option:hover{
     background:#1c2130;
     border-color:#3a4152;
 }
 
-/* Correct answer */
+/* correct */
 
 .option.correct{
     border:2px solid #2f7a4c;
     background:#15181f;
 }
 
-/* Wrong answer */
+/* incorrect */
 
 .option.wrong{
     border:2px solid #a24a4a;
     background:#15181f;
 }
 
-/* Feedback text */
+/* ===== FEEDBACK TEXT ===== */
 
 #feedback{
     margin-top:18px;
@@ -105,7 +125,7 @@ h1{
     color:#aab1c3;
 }
 
-/* Controls */
+/* ===== CONTROLS ===== */
 
 .controls{
     margin-top:25px;
@@ -113,7 +133,7 @@ h1{
     justify-content:space-between;
 }
 
-/* Buttons */
+/* ===== BUTTONS ===== */
 
 button{
     background:#1c2230;
@@ -122,8 +142,8 @@ button{
 
     padding:10px 16px;
     border-radius:8px;
-    cursor:pointer;
 
+    cursor:pointer;
     transition:.15s ease;
 }
 
@@ -131,7 +151,7 @@ button:hover{
     background:#262d3d;
 }
 
-/* Search box */
+/* ===== SEARCH BOX ===== */
 
 .search-box{
     display:flex;
