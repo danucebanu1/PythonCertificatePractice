@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Python Practice Test</title>
-
+<title>Python Certification Practice</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -18,58 +13,37 @@
 
 <div id="quiz">
 
-<!-- SEARCH BOX -->
-
-<div class="search-box">
-
-<input 
-id="searchQuestion" 
-type="number" 
-placeholder="Go to question number..."
-min="1">
-
-<button onclick="goToQuestion()">Go</button>
-
+<div id="statusBar">
+<div id="progress"></div>
 </div>
 
+<div id="scoreInfo">
+Score: <span id="points">0</span> / 1000
+</div>
 
-<!-- QUESTION NUMBER -->
+<div id="questionStatus"></div>
+
+<div class="search-box">
+<input id="searchQuestion" type="number" placeholder="Go to question number">
+<button onclick="goToQuestion()">Go</button>
+</div>
 
 <div id="question-number"></div>
 
-
-<!-- QUESTION TEXT -->
-
 <div id="question"></div>
-
-
-<!-- CODE BLOCK -->
 
 <pre id="code"></pre>
 
-
-<!-- ANSWERS -->
-
 <div id="answers"></div>
-
-
-<!-- FEEDBACK -->
 
 <div id="feedback"></div>
 
-
-<!-- CONTROLS -->
-
 <div class="controls">
-
-<button id="prevBtn" onclick="prevQuestion()">Previous</button>
-
+<button onclick="prevQuestion()">Previous</button>
 <button onclick="nextQuestion()">Next</button>
-
 </div>
 
 </div>
-
 
 <script src="script.js"></script>
 
