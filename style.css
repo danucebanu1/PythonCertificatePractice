@@ -1,184 +1,169 @@
-/* ======================
-   Page background
-====================== */
-
 body{
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:radial-gradient(circle at top,#0d1420,#060b14);
-    color:#e6edf3;
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+background:radial-gradient(circle at top,#0d1420,#060b14);
+color:#e6edf3;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 
-    height:100vh;
+height:100vh;
 }
-
-/* ======================
-   Title
-====================== */
 
 h1{
-    margin-bottom:40px;
-    font-weight:600;
-    font-size:34px;
-    color:white;
+margin-bottom:35px;
+font-size:32px;
+font-weight:600;
 }
-
-/* ======================
-   Glass Quiz Card
-====================== */
 
 #quiz{
-    width:860px;   /* bigger card */
+width:900px;
+padding:40px;
 
-    padding:40px;
+border-radius:18px;
 
-    border-radius:18px;
+background:rgba(18,24,38,0.75);
 
-    background:rgba(18,24,38,0.75);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.08);
 
-    border:1px solid rgba(255,255,255,0.08);
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,0.7),
-        inset 0 1px 0 rgba(255,255,255,0.05);
+box-shadow:
+0 25px 80px rgba(0,0,0,0.7),
+inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
-/* ======================
-   Question number
-====================== */
-
-#question-number{
-    color:#8b949e;
-    font-size:14px;
-    margin-bottom:10px;
+#statusBar{
+height:8px;
+background:#1b2233;
+border-radius:6px;
+margin-bottom:20px;
+overflow:hidden;
 }
 
-/* ======================
-   Question text
-====================== */
+#progress{
+height:100%;
+width:0%;
+background:#2ecc71;
+transition:width .3s;
+}
+
+#scoreInfo{
+font-size:14px;
+color:#8b949e;
+margin-bottom:15px;
+}
+
+#questionStatus{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+margin-bottom:20px;
+}
+
+.statusBox{
+width:16px;
+height:16px;
+border-radius:4px;
+background:#1b2233;
+}
+
+.statusBox.correct{
+background:#3fb950;
+}
+
+.statusBox.wrong{
+background:#f85149;
+}
 
 #question{
-    font-size:22px;
-    font-weight:500;
-    margin-bottom:20px;
+font-size:22px;
+margin-bottom:18px;
 }
 
-/* ======================
-   Code block
-====================== */
+#question-number{
+color:#8b949e;
+font-size:14px;
+margin-bottom:10px;
+}
 
 #code{
-    background:#0b0f17;
-    border:1px solid #2a3142;
-    border-radius:10px;
+background:#0b0f17;
+border:1px solid #2a3142;
+border-radius:10px;
+padding:16px;
+margin-bottom:22px;
 
-    padding:16px;
-    margin-bottom:22px;
+font-family:"JetBrains Mono",monospace;
+font-size:14px;
 
-    font-family:"JetBrains Mono",monospace;
-    font-size:14px;
+white-space:pre-wrap;
 }
-
-/* ======================
-   Answer options
-====================== */
 
 .option{
-    background:#121826;
-    border:1px solid #2a3142;
+background:#121826;
+border:1px solid #2a3142;
 
-    padding:16px;
-    margin-bottom:12px;
+padding:16px;
+margin-bottom:12px;
 
-    border-radius:10px;
+border-radius:10px;
 
-    cursor:pointer;
-    transition:all .15s ease;
+cursor:pointer;
+transition:all .15s ease;
 }
-
-/* hover */
 
 .option:hover{
-    border-color:#4c6ef5;
-    transform:translateY(-1px);
+border-color:#4c6ef5;
 }
-
-/* correct */
 
 .option.correct{
-    background:#cfe8d6;
-    border:1px solid #3fb950;
-    color:#0b0f17;
+background:#cfe8d6;
+border:1px solid #3fb950;
+color:#0b0f17;
 }
-
-/* wrong */
 
 .option.wrong{
-    background:#f2c6c6;
-    border:1px solid #f85149;
-    color:#0b0f17;
+background:#f2c6c6;
+border:1px solid #f85149;
+color:#0b0f17;
 }
-
-/* ======================
-   Feedback
-====================== */
 
 #feedback{
-    margin-top:18px;
-    font-size:14px;
+margin-top:18px;
+font-size:14px;
 }
-
-/* ======================
-   Controls
-====================== */
 
 .controls{
-    margin-top:28px;
-    display:flex;
-    justify-content:space-between;
+margin-top:28px;
+display:flex;
+justify-content:space-between;
 }
 
-/* ======================
-   Buttons
-====================== */
-
 button{
-    padding:10px 18px;
-
-    border-radius:10px;
-    border:1px solid #2a3142;
-
-    background:#1b2233;
-    color:#e6edf3;
-
-    cursor:pointer;
+padding:10px 18px;
+border-radius:10px;
+border:1px solid #2a3142;
+background:#1b2233;
+color:#e6edf3;
+cursor:pointer;
 }
 
 button:hover{
-    background:#232b40;
+background:#232b40;
 }
 
-/* ======================
-   Search box
-====================== */
-
 .search-box{
-    margin-bottom:22px;
+margin-bottom:20px;
 }
 
 .search-box input{
-    padding:9px 12px;
-
-    border-radius:8px;
-    border:1px solid #2a3142;
-
-    background:#0b0f17;
-    color:#e6edf3;
+padding:8px 12px;
+border-radius:8px;
+border:1px solid #2a3142;
+background:#0b0f17;
+color:#e6edf3;
 }
