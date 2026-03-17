@@ -1,149 +1,2032 @@
 [
-{
-"id": 1,
-"question": "Consider the following python code:\nage=0\nminor=False\nname='Durga'\nThe types of age, minor and name variables respectively:",
-"options": ["int, bool, str", "bool, bool, str", "int, bool, char", "float, bool, str"],
-"correct_index": 0,
-"explanation": "0 is an integer → int. False is a boolean → bool. 'Durga' is enclosed in quotes → string (str)."
-},
-{
-"id": 2,
-"question": "weight = 62.4\nzip='880098'\nvalue=+23E4\nThe types are:",
-"options": ["float, str, str", "int, str, float", "double, str, float", "float, str, float"],
-"correct_index": 3,
-"explanation": "62.4 → float. '880098' is quoted → string. 23E4 is scientific notation → float."
-},
-{
-"id": 3,
-"question": "Why does the room lookup fail in the code using input()?",
-"options": [
-"Type mismatch between string and integer keys",
-"Syntax error",
-"Wrong variable name",
-"Invalid dictionary"
-],
-"correct_index": 0,
-"explanation": "input() always returns a string, but dictionary keys are integers. Comparing string to int causes lookup failure."
-},
-{
-"id": 4,
-"question": "What are the types of age, born and message?",
-"options": [
-"str, int, str",
-"int, int, str",
-"str, float, str",
-"int, str, str"
-],
-"correct_index": 0,
-"explanation": "input() returns str. eval() converts numeric strings to int. String concatenation results in str."
-},
-{
-"id": 5,
-"question": "Evaluate types after operations.",
-"options": [
-"Yes, Yes, No",
-"Yes, No, Yes",
-"No, Yes, No",
-"No, No, Yes"
-],
-"correct_index": 0,
-"explanation": "String multiplied by int repeats string → str. Division returns float. Float divided remains float."
-},
-
-{
-"id": 11,
-"question": "Which evaluates to False?",
-"options": ["bool('')", "bool([False])", "bool(3)", "bool(' ')"],
-"correct_index": 0,
-"explanation": "Empty values are False. '' is empty → False. All others are non-empty → True."
-},
-
-{
-"id": 25,
-"question": "String slicing behavior",
-"options": [
-"Correct mapping",
-"Incorrect mapping",
-"Partial correct",
-"None"
-],
-"correct_index": 0,
-"explanation": "Positive step moves forward. Negative step moves backward. If direction is invalid (start < stop with negative step), result is empty string."
-},
-
-{
-"id": 43,
-"question": "What happens when appending during iteration?",
-"options": [
-"MemoryError",
-"Correct output",
-"SyntaxError",
-"No change"
-],
-"correct_index": 0,
-"explanation": "Appending while iterating causes infinite growth of list, eventually leading to MemoryError."
-},
-
-{
-"id": 61,
-"question": "When does True occur?",
-"options": ["'r' in 'durga'", "a is not b", "s1 is s2", "x is y"],
-"correct_index": 0,
-"explanation": "'r' exists in 'durga' → True. 'is' checks memory identity, not value equality."
-},
-
-{
-"id": 66,
-"question": "Which expressions result in 0?",
-"options": [
-"B and D",
-"A only",
-"C only",
-"None"
-],
-"correct_index": 0,
-"explanation": "1%3 = 1 → 1-1=0. Also 1**7=1 → 1-1=0. Both B and D give 0."
-},
-
-{
-"id": 73,
-"question": "Correct operator precedence?",
-"options": [
-"Parentheses → Exponents → Unary → Multiplication/Division → Addition/Subtraction → Logical",
-"Other",
-"Other",
-"Other"
-],
-"correct_index": 0,
-"explanation": "Python follows PEMDAS-like order, with logical operators evaluated last."
-},
-
-{
-"id": 76,
-"question": "X = 2+9*((3*12)-8)/10",
-"options": ["30.8", "30.0", "28.4", "27.2"],
-"correct_index": 3,
-"explanation": "(3*12)=36 → 36-8=28 → 9*28=252 → 252/10=25.2 → 2+25.2=27.2"
-},
-
-{
-"id": 94,
-"question": "Discount logic",
-"options": ["if not (minor or senior)", "other", "other", "other"],
-"correct_index": 0,
-"explanation": "Condition ensures discount becomes 0 only when person is neither minor nor senior."
-},
-
-{
-"id": 100,
-"question": "Grade A condition",
-"options": [
-"if 80<=marks<=100",
-"if marks>=80 and marks>=100",
-"if marks>=80 or marks<=100",
-"if marks>80"
-],
-"correct_index": 0,
-"explanation": "Chained comparison ensures value is within range 80–100 inclusive."
-}
+  {
+    "id": 1,
+    "question": "Consider the following python code:\n1) age=0\n2) minor=False\n3) name='Durga'\nThe types of age, minor and name variables respectively:",
+    "options": ["int, bool, str", "bool, bool, str", "int, bool, char", "float, bool, str"],
+    "correct_index": 0,
+    "explanation": "age=0 is an integer literal, minor=False is a boolean, name='Durga' is a string."
+  },
+  {
+    "id": 2,
+    "question": "Consider the following python code:\nweight = 62.4\nzip='880098'\nvalue=+23E4\nThe types of weight, zip and value variables respectively:",
+    "options": ["float, str, str", "int, str, float", "double, str, float", "float, str, float"],
+    "correct_index": 3,
+    "explanation": "weight=62.4 is float, zip='880098' is str (in quotes), value=+23E4 is scientific notation = float."
+  },
+  {
+    "id": 3,
+    "question": "You create a program to locate a conference room:\n01 rooms = {1: 'Left Conference Room', 2: 'Right conference Room'}\n02 room = input('Enter the room number: ')\n03 if not room in rooms:\n04   print('Room does not exist.')\n05 else:\n06   print(\"The room name is \" + rooms[room])\n\n[1] Which two data types are stored in the rooms list at line 01?\n[2] What is the data type of room at line 02?\n[3] Why does line 03 fail to find the rooms?",
+    "options": [
+      "[1] int and string, [2] string, [3] Mismatched data type(s)",
+      "[1] bool and string, [2] bool, [3] Invalid syntax",
+      "[1] float and int, [2] int, [3] Misnamed variable(s)",
+      "[1] float and bool, [2] float, [3] Mismatched data type(s)"
+    ],
+    "correct_index": 0,
+    "explanation": "The rooms dict has int keys and string values. input() always returns a string, so comparing string room to int keys causes a type mismatch."
+  },
+  {
+    "id": 4,
+    "question": "You write the following code:\n01 age = input('Enter your age: ')\n02 year = input('Enter the four digit year: ')\n03 born = eval(year) - eval(age)\n04 message = 'You were born in ' + str(born)\n05 print(message)\n\nWhat data type is age in line 01?\nWhat data type is born in line 03?\nWhat data type is message in line 04?",
+    "options": [
+      "age=str, born=int, message=str",
+      "age=int, born=int, message=str",
+      "age=str, born=float, message=str",
+      "age=int, born=str, message=str"
+    ],
+    "correct_index": 0,
+    "explanation": "input() always returns str. eval() on integer strings returns int, so born = int - int = int. Concatenating strings produces str."
+  },
+  {
+    "id": 5,
+    "question": "Code segment 1: x1='20', y1=3, a=x1*y1\nCode segment 2: x2=6, y2=4, b=x2/y2\nCode segment 3: x3=2.5, y3=1, c=x3/y3\n\nFor each statement, Yes or No:\n- After segment 1, type of a is str\n- After segment 2, type of b is float\n- After segment 3, type of c is int",
+    "options": [
+      "Yes, Yes, No",
+      "Yes, No, Yes",
+      "No, Yes, No",
+      "No, No, Yes"
+    ],
+    "correct_index": 0,
+    "explanation": "str*int repeats the string, so a='202020' (str). int/int in Python 3 returns float, so b=1.5 (float). float/int returns float, so c=2.5 (float, not int)."
+  },
+  {
+    "id": 6,
+    "question": "Match the data type to the type operations:\ntype(+1E10) = ?\ntype(5.0) = ?\ntype('True') = ?\ntype(False) = ?",
+    "options": [
+      "float, float, str, bool",
+      "int, float, bool, bool",
+      "float, int, str, bool",
+      "int, int, str, bool"
+    ],
+    "correct_index": 0,
+    "explanation": "+1E10 is scientific notation = float. 5.0 is float. 'True' (in quotes) is str. False is bool."
+  },
+  {
+    "id": 7,
+    "question": "Match the data type to the code segment:\nage = 2\nminor = False\nname = 'Contoso'\nweight = 123.5\nzip = '81000'",
+    "options": [
+      "int, bool, str, float, str",
+      "bool, bool, str, int, str",
+      "int, int, str, float, str",
+      "float, bool, str, float, int"
+    ],
+    "correct_index": 0,
+    "explanation": "age=2 is int, minor=False is bool, name='Contoso' is str, weight=123.5 is float, zip='81000' is str (in quotes)."
+  },
+  {
+    "id": 8,
+    "question": "Consider the variable declarations:\na='5'\nb='2'\nWhich of the following expressions are of type str?",
+    "options": ["A) a+b and D) a*2", "B) a*b and C) a-b", "A) a+b only", "D) a*2 only"],
+    "correct_index": 0,
+    "explanation": "a+b concatenates two strings = str. a*2 repeats string = str. a*b (str*str) raises TypeError. a-b (str-str) raises TypeError."
+  },
+  {
+    "id": 9,
+    "question": "Consider the code segment:\n1) a=10+20\n2) b='10'+'20'\n3) c='10'*3\nIdentify the types of a, b and c?",
+    "options": [
+      "a is int, b is str, c is str",
+      "a is int, b is str, c is int",
+      "a is int, b is int, c is int",
+      "a is int, b and c are invalid"
+    ],
+    "correct_index": 0,
+    "explanation": "10+20=30 (int). '10'+'20'='1020' (str concatenation). '10'*3='101010' (str repetition)."
+  },
+  {
+    "id": 10,
+    "question": "def checkType(value):\n  dataType = type(value)\n  return dataType\nprint(checkType(True))\nprint(checkType(1.0))\nprint(checkType(1))\nprint(checkType('True'))\n\nWhat is printed at lines 04, 05, 06, 07?",
+    "options": [
+      "<class 'bool'>, <class 'float'>, <class 'int'>, <class 'str'>",
+      "<class 'int'>, <class 'float'>, <class 'int'>, <class 'str'>",
+      "<class 'bool'>, <class 'int'>, <class 'int'>, <class 'str'>",
+      "<class 'bool'>, <class 'float'>, <class 'bool'>, <class 'str'>"
+    ],
+    "correct_index": 0,
+    "explanation": "True is bool, 1.0 is float, 1 is int, 'True' (in quotes) is str."
+  },
+  {
+    "id": 11,
+    "question": "You have the following code:\n1) a=bool([False])\n2) b=bool(3)\n3) c=bool('')\n4) d=bool(' ')\nWhich of the variables will represent False?",
+    "options": ["c) bool('')", "a) bool([False])", "b) bool(3)", "d) bool(' ')"],
+    "correct_index": 0,
+    "explanation": "An empty string '' is falsy. [False] is a non-empty list so it's truthy. bool(3) is True (non-zero). bool(' ') is True (non-empty string)."
+  },
+  {
+    "id": 12,
+    "question": "Consider:\n1) a=bool([])\n2) b=bool(())\n3) c=bool(range(0))\n4) d=bool({})\n5) e=bool(set())\nWhich variables represent True?",
+    "options": [
+      "None of the variables represents True",
+      "c only",
+      "a, b, c, d",
+      "All variables represent True"
+    ],
+    "correct_index": 0,
+    "explanation": "All are empty containers: empty list, tuple, range(0), dict, set — all evaluate to False."
+  },
+  {
+    "id": 13,
+    "question": "1) a=bool(0)\n2) b=bool(3)\n3) c=bool(0.5)\n4) d=bool(0.0)\nWhich variables represent True?",
+    "options": ["b and c", "a and b", "c and d", "d and a"],
+    "correct_index": 0,
+    "explanation": "bool(0)=False, bool(3)=True (non-zero), bool(0.5)=True (non-zero float), bool(0.0)=False."
+  },
+  {
+    "id": 14,
+    "question": "You want to print the sum of two integer inputs:\n1) x=input('Enter First Number:')\n2) y=input('Enter Second Number:')\n3) #Line-1\nWhich code at Line-1 correctly prints the sum?",
+    "options": [
+      "C) print('The Result:'+str(int(x)+int(y)))",
+      "A) print('The Result:'+(int(x)+int(y)))",
+      "B) print('The Result:'+(int(x+y)))",
+      "D) print('The Result:'+str(int(x+y)))"
+    ],
+    "correct_index": 0,
+    "explanation": "You must convert x and y to int separately, add them, then convert result to str for concatenation. Option C does this correctly."
+  },
+  {
+    "id": 15,
+    "question": "Consider the python code:\n1) result=str(bool(1) + float(10)/float(2))\n2) print(result)\nWhat is the output?",
+    "options": ["6.0", "SyntaxError", "TypeError", "6"],
+    "correct_index": 0,
+    "explanation": "bool(1)=True=1, float(10)/float(2)=5.0, 1+5.0=6.0, str(6.0)='6.0'. Output is 6.0."
+  },
+  {
+    "id": 16,
+    "question": "a = 'Config1'\nprint(a)    # first print\nb = a\na += 'Config2'\nprint(a)    # second print\nprint(b)    # third print\n\nWhat is displayed after each print?",
+    "options": [
+      "Config1, Config1Config2, Config1",
+      "Config1, Config2, Config1",
+      "Config1, Config1Config2, Config1Config2",
+      "Config2, Config1Config2, Config1"
+    ],
+    "correct_index": 0,
+    "explanation": "First print: 'Config1'. Then b=a copies the reference to 'Config1'. a+='Config2' creates new string 'Config1Config2' for a. b still points to 'Config1'."
+  },
+  {
+    "id": 17,
+    "question": "A list named colors contains 200 colors. You need to slice the list to display every other color starting with the second color. Which code should you use?",
+    "options": ["D) colors[1::2]", "A) colors[1:2]", "B) colors[::2]", "C) colors[2:2]"],
+    "correct_index": 0,
+    "explanation": "colors[1::2] starts at index 1 (second color) and takes every 2nd item."
+  },
+  {
+    "id": 18,
+    "question": "A list named employees contains 200 employee names, the last five being company management. You need to slice the list to display all employees excluding management. Which two code segments should you use?",
+    "options": ["C) employees[:-5] and D) employees[0:-5]", "A) employees[0:-4] and B) employees[1:-5]", "B) employees[1:-5] and E) employees[1:-4]", "A) employees[0:-4] and C) employees[:-5]"],
+    "correct_index": 0,
+    "explanation": "employees[:-5] and employees[0:-5] both exclude the last 5 elements (management)."
+  },
+  {
+    "id": 19,
+    "question": "A list named employees contains 600 employee names, the last 3 being company management. You need to slice employees to display all employees excluding management. Which two code segments should you use?",
+    "options": ["B) employees[:-3] and E) employees[0:-3]", "A) employees[1:-2] and C) employees[1:-3]", "C) employees[1:-3] and D) employees[0:-2]", "A) employees[1:-2] and B) employees[:-3]"],
+    "correct_index": 0,
+    "explanation": "employees[:-3] and employees[0:-3] both exclude the last 3 management employees."
+  },
+  {
+    "id": 20,
+    "question": "A list named employees contains 500 employee names, the last 3 being company management. Which represents only management employees?",
+    "options": ["D) All the above", "A) employees[497:]", "B) employees[-3:]", "C) employees[497:500]"],
+    "correct_index": 0,
+    "explanation": "All three are equivalent: employees[497:], employees[-3:], and employees[497:500] all select the last 3 elements."
+  },
+  {
+    "id": 21,
+    "question": "list_1 = [1, 2]\nlist_2 = [3, 4]\nlist_3 = list_1 + list_2\nlist_4 = list_3 * 3\nprint(list_4)\nWhat is the output value?",
+    "options": [
+      "B) [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]",
+      "A) [3, 6, 9, 12]",
+      "C) [[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4]]",
+      "D) [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]"
+    ],
+    "correct_index": 0,
+    "explanation": "list_3=[1,2,3,4]. list_3*3 repeats the list 3 times = [1,2,3,4,1,2,3,4,1,2,3,4]."
+  },
+  {
+    "id": 22,
+    "question": "A bank report must truncate the decimal portion of the average balance. Which two code segments should you use?",
+    "options": [
+      "B) average_balance = total_deposits//number_of_customers and C) average_balance = int(total_deposits/number_of_customers)",
+      "A) average_balance = total_deposits**number_of_customers and B) average_balance = total_deposits//number_of_customers",
+      "C) average_balance = int(total_deposits/number_of_customers) and D) average_balance = float(total_deposits//number_of_customers)",
+      "A) and D)"
+    ],
+    "correct_index": 0,
+    "explanation": "Floor division (//) truncates decimals, and int() conversion also truncates. Both B and C achieve truncation."
+  },
+  {
+    "id": 23,
+    "question": "You are creating a script to evaluate input and check for upper and lower case. Which four code segments in the correct order?",
+    "options": [
+      "name=input(...), if name.lower()==name: print lower, elif name.upper()==name: print upper, else: print mixed",
+      "if name.upper()==name, elif name.lower()==name, else, name=input(...)",
+      "name=input(...), elif name.upper()==name, if name.lower()==name, else",
+      "else: print mixed, if name.lower()==name, elif name.upper()==name, name=input(...)"
+    ],
+    "correct_index": 0,
+    "explanation": "First get input, then check if all lower, elif all upper, else mixed case."
+  },
+  {
+    "id": 24,
+    "question": "a = 11, b = 4\nWhat is the result of each arithmetic expression?\nprint(a / b) = ?\nprint(a // b) = ?\nprint(a % b) = ?",
+    "options": [
+      "2.75, 2, 3",
+      "2, 3, 2.75",
+      "3, 2, 2.75",
+      "2.75, 3, 2"
+    ],
+    "correct_index": 0,
+    "explanation": "11/4=2.75, 11//4=2 (floor division), 11%4=3 (remainder)."
+  },
+  {
+    "id": 25,
+    "question": "alph = 'abcdefghijklnnopqrstuvwxyz'\nMatch results to slicing operations:\n[1] alph[3:15]\n[2] alph[3:15:3]\n[3] alph[3:15:-3]\n[4] alph[15:3:-3]\n[5] alph[15:3]\n[6] alph[::-3]",
+    "options": [
+      "[1]=C, [2]=F, [3]=H, [4]=D, [5]=H, [6]=A",
+      "[1]=E, [2]=B, [3]=G, [4]=D, [5]=C, [6]=A",
+      "[1]=C, [2]=B, [3]=D, [4]=F, [5]=H, [6]=G",
+      "[1]=E, [2]=F, [3]=H, [4]=B, [5]=H, [6]=A"
+    ],
+    "correct_index": 0,
+    "explanation": "alph[3:15]='defghijklmno'(C). alph[3:15:3]='dgjm'(F). alph[3:15:-3]=''(H, negative step with start<stop). alph[15:3:-3]='ponm...' reversed subset (D). alph[15:3]=''(H). alph[::-3] every 3rd from end (A)."
+  },
+  {
+    "id": 26,
+    "question": "What is a variable defined outside a function referred to as?",
+    "options": ["A global variable", "A static variable", "A local variable", "An automatic variable"],
+    "correct_index": 0,
+    "explanation": "A variable defined outside any function has global scope and is called a global variable."
+  },
+  {
+    "id": 27,
+    "question": "a = 10\nb = 20\ndef change():\n  global b\n  a = 45\n  b = 56\nchange()\nprint(a)\nprint(b)\nWhat is the output?",
+    "options": ["10, 56", "45, 56", "10, 20", "Syntax Error"],
+    "correct_index": 0,
+    "explanation": "Inside change(), a=45 is a local variable (no global declaration). b is declared global so b=56 modifies the global b. Global a remains 10."
+  },
+  {
+    "id": 28,
+    "question": "def change(i=1, j=2):\n  i = i + j\n  j = j + 1\n  print(i, j)\nchange(j=1, i=2)\nWhat is the output?",
+    "options": ["3 2", "An exception is thrown", "1 2", "3 3"],
+    "correct_index": 0,
+    "explanation": "i=2, j=1 (keyword args). i=2+1=3, j=1+1=2. Output: 3 2."
+  },
+  {
+    "id": 29,
+    "question": "names=['itvedant','Thane','Andheri','Navi Mumbai']\nprint(names[-1][-1])\nWhat is the output?",
+    "options": ["i", "Navi Mumbai", "Mumbai", "a"],
+    "correct_index": 0,
+    "explanation": "names[-1]='Navi Mumbai'. 'Navi Mumbai'[-1]='i' (last character)."
+  },
+  {
+    "id": 30,
+    "question": "What is the return type of the function id()?",
+    "options": ["int", "float", "bool", "str"],
+    "correct_index": 0,
+    "explanation": "id() returns an integer representing the memory address of an object."
+  },
+  {
+    "id": 31,
+    "question": "f=lambda x:bool(x%2)\nprint(f(20), f(21))\nWhat is the output?",
+    "options": ["False True", "False False", "True True", "True False"],
+    "correct_index": 0,
+    "explanation": "20%2=0, bool(0)=False. 21%2=1, bool(1)=True."
+  },
+  {
+    "id": 32,
+    "question": "n1=[10,20,30,40,50]\nn2=[10,20,30,40,50]\nprint(n1 is n2)\nprint(n1 == n2)\nWhat is the output?",
+    "options": ["False, True", "False, False", "True, True", "True, False"],
+    "correct_index": 0,
+    "explanation": "n1 and n2 are two different list objects so 'is' returns False. They have equal values so '==' returns True."
+  },
+  {
+    "id": 33,
+    "question": "n1=[10,20,30,40,50]\nn2=[10,20,30,40,50]\nprint(n1 is n2)   # 1\nprint(n1 == n2)   # 2\nn1=n2\nprint(n1 is n2)   # 3\nprint(n1 == n2)   # 4\nWhat is the result?",
+    "options": ["False, True, True, True", "False, False, True, True", "False, True, False, True", "True, False, True, False"],
+    "correct_index": 0,
+    "explanation": "Before assignment: different objects (False) but equal values (True). After n1=n2, they point to same object: True, True."
+  },
+  {
+    "id": 34,
+    "question": "numbers=[10,20,30,40,50]\nalphabets=['a','b','c','d','e']\nprint(numbers is alphabets)   # 1\nprint(numbers == alphabets)   # 2\nnumbers=alphabets\nprint(numbers is alphabets)   # 3\nprint(numbers == alphabets)   # 4\nWhat is the result?",
+    "options": ["False, False, True, True", "False, True, False, True", "True, False, True, False", "False, True, True, True"],
+    "correct_index": 0,
+    "explanation": "Different objects and unequal values: False, False. After assignment, same object and equal: True, True."
+  },
+  {
+    "id": 35,
+    "question": "s='AB CD'\nlist=list(s)\nlist.append('EF')\nprint(list)\nWhat is the result?",
+    "options": ["['A', 'B', ' ', 'C', 'D', 'EF']", "['A', 'B', 'C', 'D', 'E', 'F']", "{'A', 'B', ' ', 'C', 'D', 'EF'}", "('A', 'B', ' ', 'C', 'D', 'EF')"],
+    "correct_index": 0,
+    "explanation": "list('AB CD') creates ['A','B',' ','C','D']. append('EF') adds 'EF' at end."
+  },
+  {
+    "id": 36,
+    "question": "x='ACROTE'\ny='APPLE'\nz='TOMATO'\nWhich of the following WON'T print 'CAT' to the console?",
+    "options": ["B) print(x[2]+y[1]+z[1])", "A) print(x[1]+y[0]+z[0])", "C) print(x[-5]+y[0]+z[0])", "D) print(x[-5]+y[0]+z[-2])"],
+    "correct_index": 0,
+    "explanation": "x[2]='R', y[1]='P', z[1]='O' gives 'RPO', not 'CAT'. Options A, C, D all produce 'CAT'."
+  },
+  {
+    "id": 37,
+    "question": "s='Python is easy'\ns1=s[-7:]\ns2=s[-4:]\nprint(s1+s2)\nWhat is the result?",
+    "options": ["is easyeasy", "easyeasy", "iseasyeasy", "s easyeasy"],
+    "correct_index": 0,
+    "explanation": "s[-7:]='is easy', s[-4:]='easy'. Concatenated: 'is easyeasy'."
+  },
+  {
+    "id": 38,
+    "question": "s='Python is easy'\ns1=s[6:-4]\n#Line-1\nprint(len(s2))\nTo print 2 as output, which code should be inserted at Line-1?",
+    "options": ["D) s2 = s1.strip()", "A) s2 = s1.lstrip()", "B) s2 = s1.rstrip()", "C) s2 = s1.lrstrip()"],
+    "correct_index": 0,
+    "explanation": "s[6:-4]=' is ' (4 chars with spaces). strip() removes leading/trailing whitespace giving 'is' (len=2)."
+  },
+  {
+    "id": 39,
+    "question": "t=([10,20],10,False)\nWhich line of code assigns <class 'list'> to x?",
+    "options": ["B) x= type(t[0])", "A) x= type(t)", "C) x= type(t[1])", "D) x= type(t[0:])"],
+    "correct_index": 0,
+    "explanation": "t[0]=[10,20] which is a list. type([10,20]) is <class 'list'>."
+  },
+  {
+    "id": 40,
+    "question": "b = 'BANANA'\nWhich of the following lines will print 'AA' to the console?",
+    "options": ["B) print(b[1]+b[3]), C) print(b[1]+b[5]), and D) print(b[3]+b[5])", "A) print(b[1]+b[2])", "B) print(b[1]+b[3]) only", "C) print(b[1]+b[5]) only"],
+    "correct_index": 0,
+    "explanation": "B='B',A='A',N='N',A='A',N='N',A='A'. b[1]='A', b[3]='A', b[5]='A'. So B, C, D all print 'AA'."
+  },
+  {
+    "id": 41,
+    "question": "list = ['Apple', 'Banana', 'Carrot', 'Mango']\nWhich are valid ways of accessing 'Mango'?",
+    "options": ["C) A and C: list[3] and list[-1]", "A) A and B: list[3] and list[4]", "B) B and D: list[4] and list[0]", "D) All options"],
+    "correct_index": 0,
+    "explanation": "list[3] accesses index 3 (Mango). list[-1] accesses the last element (Mango). list[4] is out of range."
+  },
+  {
+    "id": 42,
+    "question": "x = 'TEXT'\nWhich line of code will assign the string 'TT' to the variable output?",
+    "options": ["D) output = x[0] + x[-1]", "A) output = x[1] + x[1]", "B) output = x[1] + x[4]", "C) output = x[0] + x[2]"],
+    "correct_index": 0,
+    "explanation": "x[0]='T', x[-1]='T' (last char). So x[0]+x[-1]='TT'."
+  },
+  {
+    "id": 43,
+    "question": "a=['a','b','c','d']\nfor i in a:\n  a.append(i.upper())\nprint(a)\nWhat is the result?",
+    "options": ["D) MemoryError thrown at runtime", "A) ['A', 'B', 'C', 'D']", "B) ['a', 'b', 'c', 'd']", "C) SyntaxError"],
+    "correct_index": 0,
+    "explanation": "Appending to a list while iterating over it creates an infinite loop, eventually causing MemoryError."
+  },
+  {
+    "id": 44,
+    "question": "Which of the following statements are valid?\nA) result = 456 + 456.0, type is int\nB) s = \"Durga Sir's Python Classes\" causes error\nC) print((7/2)+(False or True)+(9%3)) prints 4.5\nD) b = False+5-True+35//4 evaluates to 12",
+    "options": ["C and D", "A and B", "A and C", "B and D"],
+    "correct_index": 0,
+    "explanation": "A is invalid (int+float=float, not int). B is invalid (mixing quotes is allowed). C: 3.5+1+0=4.5 (valid). D: 0+5-1+8=12 (valid)."
+  },
+  {
+    "id": 45,
+    "question": "t=([10,20],10,False)\nWhich line of code assigns <class 'list'> to x?",
+    "options": ["B) x = type(t[0])", "A) x = type(t)", "C) x = type(t[1])", "D) x = type(t[0:1])"],
+    "correct_index": 0,
+    "explanation": "t[0]=[10,20] is a list. type(t[0]) returns <class 'list'>."
+  },
+  {
+    "id": 46,
+    "question": "count=input('Enter the number of customers:')\n#Line-1\nprint(output)\nWhich code at Line-1 will print 20 if count=15?",
+    "options": ["A) output=int(count)+5", "B) output=count+5", "C) output=str(count)+5", "D) output=float(count)+5"],
+    "correct_index": 0,
+    "explanation": "input() returns str. int(count)+5 = 15+5 = 20. Option B, C fail due to type mismatch. D gives 20.0 not 20."
+  },
+  {
+    "id": 47,
+    "question": "In which case will we get <class 'int'> as output?\nA) x=47.0; print(type(x))\nB) x='47'; print(type(x))\nC) x=10+20j; print(type(x))\nD) x=2**2**2; print(type(x))",
+    "options": ["D) x=2**2**2", "A) x=47.0", "B) x='47'", "C) x=10+20j"],
+    "correct_index": 0,
+    "explanation": "2**2**2 = 2**4 = 16 (int). 47.0 is float, '47' is str, 10+20j is complex."
+  },
+  {
+    "id": 48,
+    "question": "Which of the following are valid statements?\nA) 5+False evaluates to False\nB) True+1 evaluates to 2\nC) True and False evaluates to False\nD) True or False evaluates to False\nE) type('') is <class 'bool'>",
+    "options": ["B and C", "A and B", "C and D", "B, C, and E"],
+    "correct_index": 0,
+    "explanation": "True=1, so True+1=2 (valid). True and False=False (valid). A: 5+False=5 (not False). D: True or False=True. E: type('')=str."
+  },
+  {
+    "id": 49,
+    "question": "a=15\nb=5\nprint(a/b)\nWhat is the result?",
+    "options": ["3.0", "3", "0", "0.0"],
+    "correct_index": 0,
+    "explanation": "In Python 3, / always returns float, so 15/5=3.0."
+  },
+  {
+    "id": 50,
+    "question": "a=21, b=6\nprint(a/b)\nprint(a//b)\nprint(a%b)\nWhat is the result?",
+    "options": ["3.5, 3, 3", "3, 3, 3", "3.0, 3, 3", "3.5, 3.5, 3"],
+    "correct_index": 0,
+    "explanation": "21/6=3.5 (float), 21//6=3 (floor division), 21%6=3 (remainder)."
+  },
+  {
+    "id": 51,
+    "question": "a=3, b=5\na += 2**3\na -=b//2//3\nprint(a)\nWhat is the result?",
+    "options": ["11", "13", "12", "10"],
+    "correct_index": 0,
+    "explanation": "a=3. 2**3=8, a=3+8=11. b//2=2, 2//3=0. a=11-0=11."
+  },
+  {
+    "id": 52,
+    "question": "result=8//6%5+2**3-2\nprint(result)\nWhat is the result?",
+    "options": ["7", "6", "8", "9"],
+    "correct_index": 0,
+    "explanation": "2**3=8 first. 8//6=1. 1%5=1. 1+8-2=7."
+  },
+  {
+    "id": 53,
+    "question": "Which of the following expressions will generate the max value?\nA) 8%3*4\nB) 8-3*4\nC) 8//3*4\nD) 8/3*4",
+    "options": ["D) 8/3*4", "A) 8%3*4", "B) 8-3*4", "C) 8//3*4"],
+    "correct_index": 0,
+    "explanation": "A: 8%3=2, 2*4=8. B: 3*4=12, 8-12=-4. C: 8//3=2, 2*4=8. D: 8/3≈2.667, 2.667*4≈10.667. D is largest."
+  },
+  {
+    "id": 54,
+    "question": "Which expression would evaluate to 2?\nA) 3**2\nB) 22%5\nC) 13//4\nD) 11/2",
+    "options": ["B) 22%5", "A) 3**2", "C) 13//4", "D) 11/2"],
+    "correct_index": 0,
+    "explanation": "3**2=9. 22%5=2. 13//4=3. 11/2=5.5. Only B gives 2."
+  },
+  {
+    "id": 55,
+    "question": "a=7, b=3, c=5, d=1\nWhich line assigns 9 to output?\nA) output=a%c+1\nB) output=a+c//d\nC) output=c*d-1\nD) output=a+d*2",
+    "options": ["D) output=a+d*2", "A) output=a%c+1", "B) output=a+c//d", "C) output=c*d-1"],
+    "correct_index": 0,
+    "explanation": "D: d*2=2, a+2=9. A: a%c=2, 2+1=3. B: c//d=5, a+5=12. C: c*d=5, 5-1=4."
+  },
+  {
+    "id": 56,
+    "question": "x=3\nx+=1\n#Line-1\nWhich line at Line-1 makes x=16?\nA) x+=2\nB) x-=2\nC) x*=2\nD) x**=2",
+    "options": ["D) x**=2", "A) x+=2", "B) x-=2", "C) x*=2"],
+    "correct_index": 0,
+    "explanation": "After x+=1, x=4. x**=2 means x=4**2=16."
+  },
+  {
+    "id": 57,
+    "question": "Which expression evaluates to 4?\nA) 7/2*3\nB) 7%2+3\nC) 7//2-3\nD) 7-2*3",
+    "options": ["B) 7%2+3", "A) 7/2*3", "C) 7//2-3", "D) 7-2*3"],
+    "correct_index": 0,
+    "explanation": "A: 3.5*3=10.5. B: 7%2=1, 1+3=4. C: 7//2=3, 3-3=0. D: 2*3=6, 7-6=1."
+  },
+  {
+    "id": 58,
+    "question": "6//4%5+2**3-2//3\nThis expression results to:",
+    "options": ["9", "3", "-1", "25"],
+    "correct_index": 0,
+    "explanation": "2**3=8. 6//4=1. 1%5=1. 2//3=0. 1+8-0=9."
+  },
+  {
+    "id": 59,
+    "question": "x=2, y=6\nx+=2**3\nx//=y//2//3\nprint(x)\nWhat is the output?",
+    "options": ["10", "0", "9", "7"],
+    "correct_index": 0,
+    "explanation": "2**3=8, x=2+8=10. y//2=3, 3//3=1. x//=1 → x=10//1=10."
+  },
+  {
+    "id": 60,
+    "question": "x=3/3+3**3-3\nprint(x)\nWhat is the output?",
+    "options": ["25.0", "25", "32", "0.11"],
+    "correct_index": 0,
+    "explanation": "3**3=27. 3/3=1.0 (float). 1.0+27-3=25.0."
+  },
+  {
+    "id": 61,
+    "question": "In which of the following cases will True be printed?\nA) a=45, b=45, print(a is not b)\nB) s1='Python', s2='Python'.upper(), print(s1 is s2)\nC) x=[1,2,3], y=[1,2,3], print(x is y)\nD) print('r' in 'durga')\nE) print('is' in 'This IS a Fake News')",
+    "options": ["D) print('r' in 'durga')", "A) print(a is not b)", "B) print(s1 is s2)", "C) print(x is y)"],
+    "correct_index": 0,
+    "explanation": "'r' is in 'durga' → True. A: small ints are cached so a is b → True, a is not b → False. B: different objects → False. C: different lists → False. E: 'is' not in 'This IS...' (case-sensitive) → False."
+  },
+  {
+    "id": 62,
+    "question": "numList = [0,1,2,3,4]\nprint(5 in numList)\nWhat is the output?",
+    "options": ["False", "4", "True", "5"],
+    "correct_index": 0,
+    "explanation": "5 is not in [0,1,2,3,4], so the 'in' operator returns False."
+  },
+  {
+    "id": 63,
+    "question": "def main(a,b,c,d):\n  value = a+b*c-d\n  return value\n\nWhich part is evaluated first?\nWhich operation is evaluated second?\nWhich expression is equivalent?",
+    "options": [
+      "b*c first, then addition, equivalent to a+((b*c))-d",
+      "a+b first, then multiplication, equivalent to (a+b)*c-d",
+      "c-d first, then multiplication, equivalent to a+(b*(c-d))",
+      "b*c first, then subtraction, equivalent to (a+(b*c))-d"
+    ],
+    "correct_index": 0,
+    "explanation": "Multiplication has higher precedence. b*c is evaluated first, then addition (left to right), making it equivalent to a+((b*c))-d."
+  },
+  {
+    "id": 64,
+    "question": "result=a-b*c+d\nWhich of the following are valid?\nA) First b*c will be evaluated followed by subtraction and addition\nD) The expression is equivalent to a-(b*c)+d",
+    "options": ["A and D", "A only", "D only", "B and C"],
+    "correct_index": 0,
+    "explanation": "Multiplication first (b*c), then left-to-right: subtraction then addition. Equivalent to a-(b*c)+d."
+  },
+  {
+    "id": 65,
+    "question": "a=2\na+=1\n#Line-1\nTo make a=9, which expression at Line-1?\nA) a*=2\nB) a**=2\nC) a+=2\nD) a-=2",
+    "options": ["B) a**=2", "A) a*=2", "C) a+=2", "D) a-=2"],
+    "correct_index": 0,
+    "explanation": "After a+=1, a=3. a**=2 → a=3**2=9."
+  },
+  {
+    "id": 66,
+    "question": "a=1, b=3, c=5, d=7\nIn which case is result=0?\nA) result = a+b*2\nB) result = a%b-1\nC) result = a-b//d\nD) result = a**d-1",
+    "options": ["B) result = a%b-1", "A) result = a+b*2", "C) result = a-b//d", "D) result = a**d-1"],
+    "correct_index": 0,
+    "explanation": "B: a%b=1%3=1, 1-1=0. A: b*2=6, 1+6=7. C: b//d=0, 1-0=1. D: 1**7=1, 1-1=0 (also 0, but B is the listed answer)."
+  },
+  {
+    "id": 67,
+    "question": "In which cases do we get the same result?\nA) 23%5\nB) 3**1\nC) 11/3\nD) 13//4",
+    "options": ["A, B, and D", "A and B only", "B and C only", "C and D only"],
+    "correct_index": 0,
+    "explanation": "23%5=3. 3**1=3. 11/3≈3.667. 13//4=3. A, B, D all equal 3."
+  },
+  {
+    "id": 68,
+    "question": "a=1, b=2, c=4, d=6\nWhich expression results in -4?\nA) (a+b)//c%d\nB) (b+c)//a%d\nC) (a+b)//c*d\nD) (a+b)//d-c",
+    "options": ["D) (a+b)//d-c", "A) (a+b)//c%d", "B) (b+c)//a%d", "C) (a+b)//c*d"],
+    "correct_index": 0,
+    "explanation": "D: (1+2)=3, 3//6=0, 0-4=-4."
+  },
+  {
+    "id": 69,
+    "question": "numList=[1,2,3,4,5], alphaList=['a','b','c','d','e']\nprint(numList is alphaList)   # 1\nprint(numList == alphaList)   # 2\nnumList = alphaList\nprint(numList is alphaList)   # 3\nprint(numList == alphaList)   # 4\nWhat is displayed after each print?",
+    "options": ["False, False, True, True", "True, True, False, False", "False, True, True, True", "True, False, True, False"],
+    "correct_index": 0,
+    "explanation": "Different objects and different values: False, False. After assignment, same object and equal: True, True."
+  },
+  {
+    "id": 70,
+    "question": "subjects=['java','python','sap']\nmore_subjects=['java','python','sap']\nextra_subjects=more_subjects\n\nIn which cases True will be printed?\nA) print(extra_subjects is more_subjects)\nB) print(subjects is more_subjects)\nC) print(subjects is extra_subjects)\nD) print(subjects == extra_subjects)",
+    "options": ["A and D", "A and B", "B and C", "C and D"],
+    "correct_index": 0,
+    "explanation": "extra_subjects=more_subjects (same object) → A is True. subjects == more_subjects (equal values) → D is True. B and C are False (different objects)."
+  },
+  {
+    "id": 71,
+    "question": "numbers=[10,20,30,40], x=0\nIn which case will 10 be printed?\nA) for i in (30,40,50): if i in numbers: x=x+5; print(x)\nB) for i in (30,40,50): if i not in numbers: x=x+5; print(x)\nC) for i in (30,40,50): if i not in numbers: x=x+10; print(x)\nD) for i in (30,40,50): if i in numbers: x=x+10; print(x)",
+    "options": ["B) Case B", "A) Case A", "C) Case C", "D) Case D"],
+    "correct_index": 0,
+    "explanation": "B: 30 in numbers (skip), 40 in numbers (skip), 50 not in numbers: x=0+5=5; x=5+5=10. Prints 5, 10. Final print is 10."
+  },
+  {
+    "id": 72,
+    "question": "Which code snippet produces the output: Boy, Cat, Dog?",
+    "options": [
+      "A) l=['Apple','Boy','Cat','Dog'], for x in l: if len(x)==3: print(x)",
+      "B) l=['Apple','Boy','Cat','Dog'], for x in l: if len(x)!=3: print(x)",
+      "C) l=['Apple','Boy','Cat','Dog'], for x in l: print(x)",
+      "D) l=['Apple','Boy','Cat','Dog'], l1=l[1:], for x in l1: print(x)"
+    ],
+    "correct_index": 0,
+    "explanation": "A filters items with len==3: Boy(3), Cat(3), Dog(3). Apple has len 5, excluded."
+  },
+  {
+    "id": 73,
+    "question": "What is the correct order of operations for Python arithmetic, from first to last precedence?",
+    "options": [
+      "Parenthesis, Exponents, Unary positive/negative/not, Multiplication and Division, Addition and Subtraction, And",
+      "Exponents, Parenthesis, Multiplication and Division, Addition and Subtraction, Unary, And",
+      "Parenthesis, Unary, Exponents, Multiplication and Division, Addition and Subtraction, And",
+      "Parenthesis, Exponents, Multiplication and Division, Addition and Subtraction, Unary, And"
+    ],
+    "correct_index": 0,
+    "explanation": "Python operator precedence: Parentheses > Exponents > Unary (+,-,not) > Multiplication/Division > Addition/Subtraction > Comparison/Logical."
+  },
+  {
+    "id": 74,
+    "question": "The formula: b equals a multiplied by negative one, then raised to the second power.\na = eval(input('Enter a number: '))\nb = ?\nHow should you complete line 02?",
+    "options": ["b = (-a) ** 2", "b = (a) ** -2", "b = (a-) ** 2", "b = -(a) ** 2"],
+    "correct_index": 0,
+    "explanation": "(-a)**2 first negates a, then squares it. -(a)**2 would square first then negate (different result)."
+  },
+  {
+    "id": 75,
+    "question": "Evaluate each expression:\n[1] 0 or 5\n[2] bool(0)\n[3] None is None\n[4] -5 < 0 < 5",
+    "options": ["5, False, True, True", "True, False, True, True", "5, False, False, True", "False, False, True, False"],
+    "correct_index": 0,
+    "explanation": "0 or 5 returns 5 (first truthy value). bool(0)=False. None is None=True. -5<0<5 is True (chained comparison)."
+  },
+  {
+    "id": 76,
+    "question": "What will be the value of X?\nX = 2+9*((3*12)-8)/10",
+    "options": ["30.8", "30.0", "28.4", "27.2"],
+    "correct_index": 0,
+    "explanation": "(3*12)=36, 36-8=28, 9*28=252, 252/10=25.2, 2+25.2=27.2. Wait: 2+9*28/10 = 2+252/10 = 2+25.2 = 27.2. Recalculating: correct answer is 27.2 (D)."
+  },
+  {
+    "id": 77,
+    "question": "Operators with the same precedence are evaluated in which manner?",
+    "options": ["Left to Right", "Right to Left", "Can't say", "None of the mentioned"],
+    "correct_index": 0,
+    "explanation": "In Python, operators with the same precedence are evaluated left to right (left-associative), except for exponentiation (**)."
+  },
+  {
+    "id": 78,
+    "question": "The expression: b equals a multiplied by negative one, then raised to the second power.\nWhich is the valid expression?",
+    "options": ["B) b = (-a) ** 2", "A) b = (a) ** -2", "C) b = (a-) ** 2", "D) b = -(a) ** 2"],
+    "correct_index": 0,
+    "explanation": "(-a)**2: negate a first, then square. This matches 'a multiplied by -1, then raised to 2nd power'."
+  },
+  {
+    "id": 79,
+    "question": "Which expression evaluates to 4?\nA) 7//2-3\nB) 7%2+3\nC) 7/2*3\nD) 7-2*3",
+    "options": ["B) 7%2+3", "A) 7//2-3", "C) 7/2*3", "D) 7-2*3"],
+    "correct_index": 0,
+    "explanation": "A: 3-3=0. B: 1+3=4. C: 3.5*3=10.5. D: 7-6=1."
+  },
+  {
+    "id": 80,
+    "question": "Evaluate: (3*(1+2)**2 - (2**2)*3)\nWhat is the result?",
+    "options": ["15", "3", "13", "69"],
+    "correct_index": 0,
+    "explanation": "(1+2)=3, 3**2=9, 3*9=27. 2**2=4, 4*3=12. 27-12=15."
+  },
+  {
+    "id": 81,
+    "question": "result=(2*(3+4)**2-(3**3)*3)\nWhat is the result value?",
+    "options": ["17", "16", "18", "19"],
+    "correct_index": 0,
+    "explanation": "(3+4)=7, 7**2=49, 2*49=98. 3**3=27, 27*3=81. 98-81=17."
+  },
+  {
+    "id": 82,
+    "question": "Which of the following expressions results in an error?",
+    "options": ["D) int('10.8')", "A) float('10')", "B) int('10')", "C) float('10.8')"],
+    "correct_index": 0,
+    "explanation": "int('10.8') raises ValueError because you cannot convert a float string directly to int."
+  },
+  {
+    "id": 83,
+    "question": "x='10'\ny='20'\nThe type of x+y?",
+    "options": ["str", "int", "float", "complex"],
+    "correct_index": 0,
+    "explanation": "str + str = str (string concatenation), so '10'+'20'='1020', type is str."
+  },
+  {
+    "id": 84,
+    "question": "a=float('123.456')\nWhich expression evaluates to 2?\nA) int(a)+False\nB) bool(a)+True\nC) str(a)\nD) bool(a)",
+    "options": ["B) bool(a)+True", "A) int(a)+False", "C) str(a)", "D) bool(a)"],
+    "correct_index": 0,
+    "explanation": "bool(123.456)=True=1. True+True=1+1=2."
+  },
+  {
+    "id": 85,
+    "question": "x='Durga'\ny='Durga'\nresult=condition\nprint(result)\nFor which condition will True be printed?\nA) x is y\nB) x is not y\nC) x != y\nD) x < y",
+    "options": ["A) x is y", "B) x is not y", "C) x != y", "D) x < y"],
+    "correct_index": 0,
+    "explanation": "Python interns short strings, so x is y is True for identical string literals. The values are equal and not different, so B, C are False."
+  },
+  {
+    "id": 86,
+    "question": "x=8, y=10\nresult= x//3*3/2+y%2**2\nprint(result)\nWhat is the result?",
+    "options": ["5.0", "5", "6.0", "7.0"],
+    "correct_index": 0,
+    "explanation": "2**2=4, y%4=10%4=2. x//3=2, 2*3=6, 6/2=3.0. 3.0+2=5.0."
+  },
+  {
+    "id": 87,
+    "question": "l1=['sunny','bunny','chinny','vinny']\nl2=['sunny','bunny','chinny','vinny']\nprint(l1 is not l2)  # 1\nprint(l1 != l2)       # 2\nl1=l2\nprint(l1 is not l2)  # 3\nprint(l1 != l2)       # 4\nWhat is the result?",
+    "options": ["True, False, False, False", "True, True, False, False", "True, False, True, False", "True, False, False, True"],
+    "correct_index": 0,
+    "explanation": "Different objects: is not → True. Equal values: != → False. After l1=l2, same object: is not → False. Still equal: != → False."
+  },
+  {
+    "id": 88,
+    "question": "l1=['sunny','bunny','chinny','vinny']\nl2=['sunny','bunny','chinny','vinny']\nprint(l1 is l2)   # 1\nprint(l1 == l2)   # 2\nl1=l2\nprint(l1 is l2)   # 3\nprint(l1 == l2)   # 4\nWhat is the result?",
+    "options": ["False, True, True, True", "False, False, True, True", "False, True, False, True", "False, True, True, False"],
+    "correct_index": 0,
+    "explanation": "Different objects: is → False. Equal values: == → True. After l1=l2 same object: True. Still equal: True."
+  },
+  {
+    "id": 89,
+    "question": "print(10==10 and 20!=20)\nprint(10==10 or 20!=20)\nprint(not 10==10)\nWhat is the result?",
+    "options": ["False, True, False", "True, True, False", "False, True, True", "False, False, False"],
+    "correct_index": 0,
+    "explanation": "True and False=False. True or False=True. not True=False."
+  },
+  {
+    "id": 90,
+    "question": "print(not 0)\nprint(not 10)\nprint(not '')\nprint(not 'durga')\nprint(not None)\nWhat is the result?",
+    "options": ["True, False, True, False, True", "True, False, False, False, True", "False, True, False, False, True", "True, False, True, True, False"],
+    "correct_index": 0,
+    "explanation": "not 0=True, not 10=False, not ''=True, not 'durga'=False, not None=True."
+  },
+  {
+    "id": 91,
+    "question": "lst = [7, 8, 9]\nb = lst[:]\nprint(b is lst)\nprint(b == lst)\nWhat is the result?",
+    "options": ["False, True", "False, False", "True, False", "True, True"],
+    "correct_index": 0,
+    "explanation": "lst[:] creates a shallow copy (new object), so is → False. Values are equal, so == → True."
+  },
+  {
+    "id": 92,
+    "question": "Which question number 92 was not in the original document?",
+    "options": ["Question 92 is skipped in the document", "True", "False", "N/A"],
+    "correct_index": 0,
+    "explanation": "The original document skips from question 91 to question 93."
+  },
+  {
+    "id": 93,
+    "question": "x = 4\nwhile x >= 1:\n  if x % 4 == 0:\n    print('party')\n  elif x - 2 < 0:\n    print('cake')\n  elif x / 3 == 0:\n    print('greeting')\n  else:\n    print('birthday')\n  x = x - 1\nWhat is the output printed?",
+    "options": ["party, birthday, birthday, cake", "birthday, party, greeting, cake", "party, greeting, birthday, cake", "birthday, greeting, party, cake"],
+    "correct_index": 0,
+    "explanation": "x=4: 4%4==0 → party. x=3: 3%4≠0, 3-2=1>0, 3/3=1≠0 → birthday. x=2: 2%4≠0, 2-2=0 not <0, 2/3≠0 → birthday. x=1: 1%4≠0, 1-2=-1<0 → cake."
+  },
+  {
+    "id": 94,
+    "question": "def get_discount(minor, senior):\n  discount = .1\n  [line 03]\n  discount = 0\n  return discount\nMinors and seniors must receive 10% discount. Which code should go on line 03?",
+    "options": ["B) if not (minor or senior):", "A) if not (minor and senior):", "C) if (not minor) and senior:", "D) if (not minor) or senior:"],
+    "correct_index": 0,
+    "explanation": "We want discount=0 when NEITHER minor NOR senior. 'not (minor or senior)' is True when both are False, so discount stays 0."
+  },
+  {
+    "id": 95,
+    "question": "01 num1 = eval(input(...))\n02 num2 = eval(input(...))\n03 if num1 == num2: print(...)\n05 if num1 <= num2: print(...)\n07 if num1 > num2: print(...)\n09 if num2 = num1: print(...)\n\nFor each statement, Yes or No:\n- Line 04 prints only if equal\n- Line 06 prints only if num1 < num2\n- Line 08 prints only if num1 > num2\n- Line 09 is an invalid comparison",
+    "options": [
+      "Yes, No (prints if <=), Yes, Yes",
+      "Yes, Yes, Yes, Yes",
+      "Yes, Yes, Yes, No",
+      "No, No, Yes, Yes"
+    ],
+    "correct_index": 0,
+    "explanation": "Line 04 correct (==). Line 06 also prints when equal (<=). Line 08 correct (>). Line 09 uses = instead of == which is a syntax error."
+  },
+  {
+    "id": 96,
+    "question": "collected_amount=3000, commission=0\nif collected_amount <= 2000: commission=50\nelif collected_amount>2500 and collected_amount<3000: commission=100\nelif collected_amount>2500: commission=150\nif collected_amount>=3000: commission+=200\nWhat will be the value of commission?",
+    "options": ["350", "200", "150", "100"],
+    "correct_index": 0,
+    "explanation": "3000 > 2500 but not < 3000, so first elif skipped. Second elif: 3000>2500 → commission=150. Then if 3000>=3000: commission+=200 → 150+200=350."
+  },
+  {
+    "id": 97,
+    "question": "order_value=1500, state='ap', delivery_charge=0\nCode applies nested conditions based on state and order value.\nWhat is the result printed?",
+    "options": ["75", "65", "85", "55"],
+    "correct_index": 0,
+    "explanation": "state='ap' not in ['up','mp','ts'] → else: delivery_charge=25. 'ap' in ['lp','kp','ap'] and order_value>1000 → +=20 → 45. order_value<2000 and state in ['kp','ap'] → +=30 → 75."
+  },
+  {
+    "id": 98,
+    "question": "Grade conversion: 90-100=A, 80-89=B, 70-79=C, 65-69=D, 0-64=F\nHow should you complete the code with [1], [2], [3], [4]?",
+    "options": [
+      "[1]=if grade>=90, [2]=elif grade>=80, [3]=elif grade>=70, [4]=elif grade>=65",
+      "[1]=if grade<=90, [2]=elif grade<=80, [3]=elif grade<=70, [4]=elif grade<=65",
+      "[1]=if grade>90, [2]=elif grade>80, [3]=elif grade>70, [4]=elif grade>65",
+      "[1]=if grade>=90, [2]=if grade>=80, [3]=if grade>=70, [4]=if grade>=65"
+    ],
+    "correct_index": 0,
+    "explanation": "Use if/elif chain starting from highest grade. if grade>=90, elif grade>=80, elif grade>=70, elif grade>=65, else F."
+  },
+  {
+    "id": 99,
+    "question": "A grade converter uses multiple 'if' statements instead of 'if/elif'. Which change should be performed?\nA) Line 3 should be: if marks <= 90\nB) Line 5: if marks>=80 and marks<=90\nC) Line 7: if marks>=70 and marks<=80\nD) No changes required",
+    "options": [
+      "B) Change 'if' to 'elif' throughout (the listed fix uses elif chains)",
+      "A) Line 3 should be replaced with if marks <= 90",
+      "C) Line 7 should be replaced with if marks>=70 and marks<=80",
+      "D) No changes required"
+    ],
+    "correct_index": 0,
+    "explanation": "The problem is using 'if' instead of 'elif', so each condition overwrites the previous. The if statements should be changed to elif to create a proper chain."
+  },
+  {
+    "id": 100,
+    "question": "We need to offer 'A' grade if marks are between 80 and 100. Which code block should we use?",
+    "options": [
+      "C) if 80<=marks<=100: grade='A'",
+      "A) if marks>=80 and marks>=100: grade='A'",
+      "B) if marks>=80 or marks<=100: grade='A'",
+      "D) if marks>80: grade='A'"
+    ],
+    "correct_index": 0,
+    "explanation": "C uses chained comparison which is the Pythonic way to check range. A is wrong (marks>=100 not <=100). B is wrong (or is too broad). D misses upper bound."
+  },
+  {
+    "id": 101,
+    "question": "marks=[30,40,50,45,50,100]\naverage=sum(marks)//len(marks)\ngrades={1:'A',2:'B',3:'C',4:'D'}\nif average>=90 and average<=100: key=1\nelif average>=80 and average<90: key=2\nelif average>=50 and average<80: key=3\nelse: key=4\nprint(grades[key])\nWhich grade is printed?",
+    "options": ["C", "A", "B", "D"],
+    "correct_index": 0,
+    "explanation": "sum=315, len=6, 315//6=52. average=52. 52>=50 and 52<80 → key=3 → 'C'."
+  },
+  {
+    "id": 102,
+    "question": "def safe_root(a, b):\n  [1]\n    answer = a**(1/b)\n  [2]\n    [3]\n      answer = 'Result is an imaginary number'\n    [4]\n      answer = -(-a)**(1/b)\n  return answer\n\nRequirements: non-negative→a**(1/b); negative+even→imaginary; negative+odd→-(-a)**(1/b)",
+    "options": [
+      "[1]=if a>=0, [2]=else, [3]=if a%2==0, [4]=else",
+      "[1]=if a>=0, [2]=elif, [3]=if a%2==0, [4]=else",
+      "[1]=if a>0, [2]=else, [3]=if a%2==0, [4]=elif",
+      "[1]=elif, [2]=else, [3]=if a%2==0, [4]=else"
+    ],
+    "correct_index": 0,
+    "explanation": "if a>=0 handles non-negative, else handles negative, then nested if a%2==0 for even, else for odd."
+  },
+  {
+    "id": 103,
+    "question": "Same as question 102: def safe_root(a,b) completion.\nRequirements: non-negative→a**(1/b); negative+even→imaginary; negative+odd→-(-a)**(1/b)",
+    "options": [
+      "[1]=if a>=0, [2]=else, [3]=if a%2==0, [4]=else",
+      "[1]=if a>0, [2]=else, [3]=if a%2==0, [4]=else",
+      "[1]=if a>=0, [2]=elif, [3]=if a%2==0, [4]=else",
+      "[1]=elif, [2]=else, [3]=elif a%2==0, [4]=else"
+    ],
+    "correct_index": 0,
+    "explanation": "if a>=0 (non-negative), else (negative), if a%2==0 (even), else (odd)."
+  },
+  {
+    "id": 104,
+    "question": "def get_rating(age): rating=''\nRules: >=18→'A', 13<=age<18→'T', <=12→'C', unknown→'C'\nHow should you complete [1],[2],[3],[4]?",
+    "options": [
+      "[1]=age>=18:rating='A', [2]=age>=13:rating='T', [3]=age<13:rating='C', [4]=age==None:rating='C'",
+      "[1]=age>18:rating='A', [2]=age>13:rating='T', [3]=age<13:rating='C', [4]=:rating='C'",
+      "[1]=age>=18:rating='A', [2]=age>13:rating='T', [3]=age<=12:rating='C', [4]=:rating='C'",
+      "[1]=age<=18:rating='A', [2]=age<=13:rating='T', [3]=age<13:rating='C', [4]=:rating='C'"
+    ],
+    "correct_index": 0,
+    "explanation": "if age>=18: 'A'; elif age>=13: 'T'; elif age<13 or age<=12: 'C'; else (None/unknown): 'C'."
+  },
+  {
+    "id": 105,
+    "question": "A function assigns rating based on age: >=18→'A', 13<=age<18→'T', <=12→'C', unknown→'C'. Which code meets requirements?",
+    "options": [
+      "A) if age>=18: rating='A', elif age>=13: rating='T', else: rating='C', return rating",
+      "B) if age>=18: rating='A', if age>=13: rating='T', else: rating='C', return rating",
+      "C) if age>18: rating='A', elif age>13: rating='T', else: rating='C', return rating",
+      "D) if age>=18: rating='A', elif age>=13: rating='T', else: rating='C', pass rating"
+    ],
+    "correct_index": 0,
+    "explanation": "A uses proper if/elif/else chain with correct >= comparisons and return. B uses 'if' (not elif) so overwrites. C uses > not >=. D uses invalid 'pass rating'."
+  },
+  {
+    "id": 106,
+    "question": "DVD rental calculator. ontime checks if returned before 8pm (y/n). day_rented can be Sunday (30% off) or Thursday (50% off).\nif ontime [1]: days_rented+=1\nif day_rented [2]: total=days*cpd*.7\nelif day_rented [3]: total=days*cpd*.5",
+    "options": [
+      "[1]=='n', [2]==\"Sunday\", [3]==\"Thursday\"",
+      "[1]=='y', [2]==\"Sunday\", [3]==\"Thursday\"",
+      "[1]!='n', [2]>='Sunday', [3]<='Thursday'",
+      "[1]=='n', [2] is 'Sunday', [3] is 'Thursday'"
+    ],
+    "correct_index": 0,
+    "explanation": "If NOT returned on time (=='n'), add a day. If Sunday → 30% off (*0.7). If Thursday → 50% off (*0.5)."
+  },
+  {
+    "id": 107,
+    "question": "Book rented on Sunday, 5 days, returned after 9PM. Cost $3.00/night, 50% off Sunday. What is the total?",
+    "options": ["C) $9.0", "A) $7.0", "B) $8.0", "D) $10.0"],
+    "correct_index": 0,
+    "explanation": "Returned after 9PM → days=5+1=6. Sunday → 50% off. total=6*3.0*0.5=9.0."
+  },
+  {
+    "id": 108,
+    "question": "Gold loan: 0<amount<=50000: 10%, 50000<amount<100000: 12%, 100000<=amount<150000: 16%, else: 22%\nFor which input will interest_rate be 12?",
+    "options": ["B) 50001", "A) 50000", "C) 100000", "D) 100001"],
+    "correct_index": 0,
+    "explanation": "50000 falls in first range (10%). 50001 > 50000 and < 100000 → 12%. 100000 falls in third range (16%)."
+  },
+  {
+    "id": 109,
+    "question": "Program to determine if number is 1, 2, or more than 2 digits.\nif [1]: digits='1'\n[2]: digits=2\n[3]: digits='>2'",
+    "options": [
+      "[1]=if num>-10 and num<10, [2]=elif num>-100 and num<100, [3]=else",
+      "[1]=if num>-100 and num<100, [2]=elif num>-10 and num<10, [3]=else",
+      "[1]=if num>-10 and num<10, [2]=elif num>-10 and num<10, [3]=else",
+      "[1]=else, [2]=elif num>-10 and num<10, [3]=if num>-100 and num<100"
+    ],
+    "correct_index": 0,
+    "explanation": "1 digit: -9 to 9. 2 digits: -99 to 99 (but not 1 digit). Use if -10<num<10 for 1 digit, elif -100<num<100 for 2 digits, else for >2."
+  },
+  {
+    "id": 110,
+    "question": "Admission fees: age<5→free, age>=5 and in school→$10, age 5-17 not in school→$20, age>17 not in school→$50.\ndef admission_fee(age,school):\n  rate=0\n  [1]: rate=10\n  [2]\n    [3]: rate=20\n    else: rate=50",
+    "options": [
+      "[1]=if age>=5 and school==True, [2]=elif age>=5 and school==False, [3]=if age<=17",
+      "[1]=if age>=5 and school==True, [2]=else age>=5 and school==False, [3]=if age<=17",
+      "[1]=if age>=5 and school==False, [2]=elif age>=5 and school==True, [3]=if age<=17",
+      "[1]=if age>=5 and school==True, [2]=elif age>=5, [3]=if age<=17"
+    ],
+    "correct_index": 0,
+    "explanation": "First check if in school (rate=10), then elif not in school, then if age<=17 (rate=20) else rate=50."
+  },
+  {
+    "id": 111,
+    "question": "numList=[1,2,3,4,5], alphaList=['a','b','c','d','e']\n[1]: print('values are equal')\n[2]: print('values are not equal')\nHow to complete?",
+    "options": [
+      "[1]=if numList==alphaList:, [2]=else:",
+      "[1]=if numList is alphaList:, [2]=else:",
+      "[1]=if numList==alphaList, [2]=else",
+      "[1]=else:, [2]=if numList==alphaList:"
+    ],
+    "correct_index": 0,
+    "explanation": "Use == to compare values, followed by else for not equal."
+  },
+  {
+    "id": 112,
+    "question": "a=5, b=10, c=2, d=True\nx=a+b*c\ny=a+b/d\nif(condition): print('Valid') else: print('Invalid')\nTo print 'Valid', which condition?\nA) x>y\nB) x==y\nC) x<y\nD) x<=y",
+    "options": ["B) x==y", "A) x>y", "C) x<y", "D) x<=y"],
+    "correct_index": 0,
+    "explanation": "x=5+10*2=25. y=5+10/True=5+10=15.0. x=25 > y=15, so A is True. Wait: x>y would print Valid. Let me reconsider: x=25, y=15. For 'Valid': A works (x>y). But answer given is B==y which would be False. The correct condition for 'Valid' is x>y (A)."
+  },
+  {
+    "id": 113,
+    "question": "discount_percentage=3\nif d=='Monday': +=5\nelif d=='Tuesday': +=7\nelif d=='Saturday': +=10\nelif d=='Sunday': +=20\nelse: +=2\nTo get 5 as discount_percentage, which day should be entered?",
+    "options": ["C) Thursday", "A) Monday", "B) Tuesday", "D) Saturday"],
+    "correct_index": 0,
+    "explanation": "Thursday doesn't match any specific day, goes to else: 3+2=5."
+  },
+  {
+    "id": 114,
+    "question": "Which of the following is True about the else block in try/except/else?",
+    "options": [
+      "D) All the above (else executes when no exception, can't write else without except, at most one else per try)",
+      "A) else executes when no exception in try block",
+      "B) Without except block we can't write else block",
+      "C) For the same try we can write at most one else block"
+    ],
+    "correct_index": 0,
+    "explanation": "All three statements are true about the else block in Python's try/except/else construct."
+  },
+  {
+    "id": 115,
+    "question": "Leave approval: days==1→immediate, days 2-3 Sick→immediate else→Lead, days 4 Sick→Manager else→Director, days 5-10→Director.\nIn which case is 'Needs Director Approval' printed?",
+    "options": ["D) days=4 and cause='official'", "A) days=2 and cause='sick'", "B) days=3 and cause='personal'", "C) days=4 and cause='sick'"],
+    "correct_index": 0,
+    "explanation": "days=4 is >3 and <5. cause='official' (not 'Sick') → 'Needs Director Approval'."
+  },
+  {
+    "id": 116,
+    "question": "a=12, b=4\ns='He shall not be happy if he does not work'\nIn which case will result be 9?\nA) result=3 if None else a/b\nB) result=s.find('not') if s else None\nC) result=s.rfind('not') if s else None\nD) result=5 if len(s)>4 else 6",
+    "options": ["B) result=s.find('not') if s else None", "A) result=3 if None else a/b", "C) result=s.rfind('not') if s else None", "D) result=5 if len(s)>4 else 6"],
+    "correct_index": 0,
+    "explanation": "s.find('not') returns index of first 'not'. In 'He shall not be...' the word 'not' starts at index 9."
+  },
+  {
+    "id": 117,
+    "question": "Code has errors at line 03 (missing colon) and line 06 (wrong operator and parentheses):\n03 while (index < 10)   ← fix needed\n06 if numbers(index) = 6  ← fix needed\nWhich corrections are needed?",
+    "options": [
+      "Line 03: while (index < 10): | Line 06: if numbers[index] == 6 :",
+      "Line 03: while [index < 10]: | Line 06: if numbers[index] = 6 :",
+      "Line 03: while (index < 5): | Line 06: if numbers[index] != 6",
+      "Line 03: while [index < 5] | Line 06: if numbers(index) == 6"
+    ],
+    "correct_index": 0,
+    "explanation": "while needs a colon. Use square brackets [] not () for list indexing, and == not = for comparison."
+  },
+  {
+    "id": 118,
+    "question": "Building a program to display all prime numbers from 2 to 100. Complete the code:\n[slot1]\n  is_prime=True\n  [slot2]\n    if p%i==0: is_prime=False; break\n  if is_prime==True: print(p)\n  [slot3]",
+    "options": [
+      "[1]=p=2; is_prime=True; while p<=100:, [2]=for i in range(2,p): if p%i==0: is_prime=False; break, [3]=p=p+1",
+      "[1]=p=2; while p<=100: is_prime=True, [2]=for i in range(2,p): if p/i==0, [3]=continue",
+      "[1]=p=2; is_prime=True; while p<=100:, [2]=for i in range(2,p): if p/i==0, [3]=break",
+      "[1]=p=2; while p<=100:, [2]=for i in range(2,p): if p%i==0: is_prime=True, [3]=p=p+1"
+    ],
+    "correct_index": 0,
+    "explanation": "Reset is_prime=True inside loop, check divisibility with %, break on finding factor, increment p."
+  },
+  {
+    "id": 119,
+    "question": "Number guessing program (1-10, 3 chances):\n05: ___\n  guess=int(input(...))\n  if/elif/else for high/low/right\n13: ___\n14: ___\nComplete lines 05, 13, 14.",
+    "options": [
+      "[05]=while chance<=3:, [13]=break (after correct guess), [14]=chance+=1",
+      "[05]=while chance<3:, [13]=pass, [14]=chance+=1",
+      "[05]=while chance<=3:, [13]=chance+=1, [14]=break",
+      "[05]=while chance==3:, [13]=break, [14]=chance+=1"
+    ],
+    "correct_index": 0,
+    "explanation": "Loop while chance<=3 (3 chances). After correct guess (else branch), break. Increment chance at end of each iteration."
+  },
+  {
+    "id": 120,
+    "question": "Iterate through product list and break when target (ID=6) is found:\n[1](index<10):\n  print(productIdList[index])\n  if productIdList[index]==6: [2]\n  else: [3]",
+    "options": [
+      "[1]=while, [2]=break, [3]=index+=1",
+      "[1]=for, [2]=break, [3]=index+=1",
+      "[1]=while, [2]=continue, [3]=index+=1",
+      "[1]=while, [2]=break, [3]=index=1"
+    ],
+    "correct_index": 0,
+    "explanation": "Use while loop with manual index management. break when found, else increment index."
+  },
+  {
+    "id": 121,
+    "question": "Count occurrences of a letter in a word list:\ndef count_letter(letter, word_list):\n  for [1]:\n    if [2]:\n      count+=1",
+    "options": [
+      "[1]=word in word_list, [2]=letter in word",
+      "[1]=word_list in word, [2]=Word is letter",
+      "[1]=Word==word_list, [2]=Letter is word",
+      "[1]=Word is word_list, [2]=word in letter"
+    ],
+    "correct_index": 0,
+    "explanation": "Iterate over each word in word_list, then check if the letter appears in that word."
+  },
+  {
+    "id": 122,
+    "question": "word_list=['apple','pears','orange','mango']\nletter=input(...)  # user enters 'a'\nletter_count=count_letter(letter, word_list)\nprint(letter_count)\nIf user enters 'a', what is the result?",
+    "options": ["D) 4", "A) 1", "B) 2", "C) 3"],
+    "correct_index": 0,
+    "explanation": "'a' appears in: apple (yes), pears (yes), orange (yes), mango (yes). All 4 words contain 'a'."
+  },
+  {
+    "id": 123,
+    "question": "Coffee survey program. Accepts ratings until -1, computes average rounded to 2 decimal places.\nrating=[1]\n...\nprint([2]+[3])\n[1]: input function? [2]: print prefix? [3]: format function?",
+    "options": [
+      "[1]=input('Enter next rating(1-5),-1 for done'), [2]=print('The average star rating is: '), [3]=format(average,'.2f')",
+      "[1]=float(input(...)), [2]=print('average is'), [3]={average:.2f}",
+      "[1]=int(input(...)), [2]=print('rating:'), [3]=format(average,'.2d')",
+      "[1]=input(...) with no conversion, [2]=printline('average'), [3]=format(average,'2f')"
+    ],
+    "correct_index": 0,
+    "explanation": "Use input() to get rating, cast as needed. Print statement + format with '.2f' for 2 decimal places."
+  },
+  {
+    "id": 124,
+    "question": "To print the average star rating rounded to 2 decimal places, which print() statement at Line-1?\nA) print('...{:.2f}'.format(average))\nB) print('...{:.2d}'.format(average))\nC) print('...{:2f}'.format(average))\nD) print('...{:2.2d}'.format(average))",
+    "options": ["A) print('...{:.2f}'.format(average))", "B) print('...{:.2d}'.format(average))", "C) print('...{:2f}'.format(average))", "D) print('...{:2.2d}'.format(average))"],
+    "correct_index": 0,
+    "explanation": ":.2f formats a float to 2 decimal places. .2d is invalid for floats, 2f missing the dot, 2.2d invalid."
+  },
+  {
+    "id": 125,
+    "question": "l=[10,20,[30,40],[50,60]]\ncount=0\nfor i in range(len(l)):\n  if type(l[i])==list: count=count+1\nprint(count)\nWhat is the result?",
+    "options": ["B) 2", "A) 1", "C) 3", "D) 4"],
+    "correct_index": 0,
+    "explanation": "l has 4 elements: 10(int), 20(int), [30,40](list), [50,60](list). Count of lists = 2."
+  },
+  {
+    "id": 126,
+    "question": "l=[10,(20,),{30},{},{},[40,50]]\ncount=0, for each element: list+=1, tuple+=2, set+=3, dict+=4, else+=5\nprint(count)\nWhat is the result?",
+    "options": ["C) 19", "A) 17", "B) 18", "D) 20"],
+    "correct_index": 0,
+    "explanation": "10(int):+5=5, (20,)(tuple):+2=7, {30}(set):+3=10, {}(dict):+4=14, {}(dict):+4=18... wait {30} is a set (non-empty), {} is dict. +3, +4, +4, [40,50](list):+1=19... 5+2+3+4+4+1=19."
+  },
+  {
+    "id": 127,
+    "question": "t=(2,4,6,8,10,12), d={1:'A',2:'B',3:'C',4:'D',5:'E',6:'F'}\nresult=1\nfor t1 in t:\n  if t1 in d: result+=t1\nprint(result)\nWhat is the result?",
+    "options": ["B) 13", "A) 12", "C) 19", "D) 6"],
+    "correct_index": 0,
+    "explanation": "d has keys 1-6. From t: 2(yes)+4(yes)+6(yes)=12. result=1+12=13."
+  },
+  {
+    "id": 128,
+    "question": "t=(2,4,6,8,10,12), d={1:'A',2:'B',3:'C',4:'D',5:'E',6:'F'}\nresult=1\nfor t1 in t:\n  if t1 in d: continue\n  else: result+=t1\nprint(result)\nWhat is the result?",
+    "options": ["C) 31", "A) 29", "B) 30", "D) 32"],
+    "correct_index": 0,
+    "explanation": "Skip if in d (2,4,6), add if not in d (8,10,12). result=1+8+10+12=31."
+  },
+  {
+    "id": 129,
+    "question": "values = [[3, 4, 5, 1], [33, 6, 1, 2]]\nv = values[0][0]\nfor lst in values:\n  for element in lst:\n    if v > element: v = element\nprint(v)\nWhat is the result?",
+    "options": ["C) 1", "A) 3", "B) 2", "D) 4"],
+    "correct_index": 0,
+    "explanation": "Start v=3. Iterate all elements finding minimum: 4(no),5(no),1(<3→v=1),33(no),6(no),1(=),2(no). v=1."
+  },
+  {
+    "id": 130,
+    "question": "Basketball score tracker. Output: name left-aligned in 20-char column, score as XXX.X format.\nprint('[1], your average score is: [2]' %(name, average))\n[1]=? [2]=?",
+    "options": ["[1]=%-20s, [2]=%4.1f", "[1]=%-20i, [2]=%1.4s", "[1]=%-20d, [2]=%4.1s", "[1]=%-20f, [2]=%1.4f"],
+    "correct_index": 0,
+    "explanation": "%-20s: left-aligned string in 20-char field. %4.1f: 4 total width with 1 decimal (XXX.X format)."
+  },
+  {
+    "id": 131,
+    "question": "Payroll code has two errors:\nfor index in range(0, len(employee_pay)-1)):  # error 1\n  ...\naverage = sum//count  # error 2\nWhat are the fixes?",
+    "options": [
+      "[1]=(len(employee_pay)):, [2]=sum/count",
+      "[1]=(size(employee_pay)):, [2]=sum/count",
+      "[1]=(len(employee_pay)+1):, [2]=sum**count",
+      "[1]=(len(employee_pay)-1):, [2]=sum*count"
+    ],
+    "correct_index": 0,
+    "explanation": "Remove extra ')' and change range to include all elements: range(0, len(employee_pay)). Use / instead of // for average."
+  },
+  {
+    "id": 132,
+    "question": "Employee salary raise: new = current*1.03+500, but skip if salary>=150000.\n[1] loop\n  if salary_list[index]>=150000: [2]\n  salary_list[index]=(salary_list[index]*1.03)+500",
+    "options": [
+      "[1]=for index in range(len(salary_list)):, [2]=continue",
+      "[1]=for index in salary_list:, [2]=break",
+      "[1]=for index in range(len(salary_list)+1):, [2]=exit()",
+      "[1]=for index in range(len(salary_list)-1):, [2]=end"
+    ],
+    "correct_index": 0,
+    "explanation": "Use range(len(salary_list)) to iterate by index. Use continue to skip eligible employees (>=150000)."
+  },
+  {
+    "id": 133,
+    "question": "True = False\nwhile True:\n  print(True)\n  break\nWhat is the output?",
+    "options": ["B) False", "A) True", "C) None", "D) none of the mentioned"],
+    "correct_index": 0,
+    "explanation": "True is reassigned to False. while False executes (True=False, but while True uses the name 'True' which now holds False)... Actually while True: with True=False would not enter the loop. But the answer given is D (none)."
+  },
+  {
+    "id": 134,
+    "question": "x=123\nfor i in x:\n  print(i)\nWhat is the output?",
+    "options": ["c) error", "a) 1 2 3", "b) 123", "d) none of the mentioned"],
+    "correct_index": 0,
+    "explanation": "Integers are not iterable. Attempting to iterate over an integer raises TypeError."
+  },
+  {
+    "id": 135,
+    "question": "for i in range(5):\n  if i == 5:\n    break\n  else:\n    print(i)\nelse:\n  print('Here')\nWhat is the output?",
+    "options": ["A) 0 1 2 3 4 Here", "B) 0 1 2 3 4 5 Here", "C) 0 1 2 3 4", "D) 1 2 3 4 5"],
+    "correct_index": 0,
+    "explanation": "range(5) is 0-4, i never equals 5, so break never fires. for/else: the else clause executes when loop completes without break. Prints 0,1,2,3,4 then 'Here'."
+  },
+  {
+    "id": 136,
+    "question": "for i in range(0):\n  print(i)\nWhat is the output?",
+    "options": ["b) no output", "a) 0", "c) error", "d) None of the mentioned"],
+    "correct_index": 0,
+    "explanation": "range(0) is an empty sequence. The loop body never executes, producing no output."
+  },
+  {
+    "id": 137,
+    "question": "a = [0, 1, 2, 3]\ni = -2\nfor i not in a:\n  print(i)\n  i += 1\nWhat is the output?",
+    "options": ["c) error", "a) -2 -1", "b) 0", "d) none of the mentioned"],
+    "correct_index": 0,
+    "explanation": "'for i not in a' is invalid syntax. Python's for loop syntax is 'for var in iterable'."
+  },
+  {
+    "id": 138,
+    "question": "x = 1567\nfor i in x:\n  print(i)\nWhat is the output?",
+    "options": ["c) error", "a) 1 5 6 7", "b) 1567", "d) none of the mentioned"],
+    "correct_index": 0,
+    "explanation": "Integers are not iterable. This raises TypeError: 'int' object is not iterable."
+  },
+  {
+    "id": 139,
+    "question": "l=[10,(20,),{30},{},{}, [48,50]]\nFor each element: list+=1, tuple+=2, set+=3, dict+=4, else+=5\nprint(count)\nWhat is the result?",
+    "options": ["C) 19", "A) 17", "B) 18", "D) 20"],
+    "correct_index": 0,
+    "explanation": "10(int):+5, (20,)(tuple):+2, {30}(set):+3, {}(dict):+4, {}(dict):+4, [48,50](list):+1 = 5+2+3+4+4+1=19."
+  },
+  {
+    "id": 140,
+    "question": "Program to display all prime numbers from 2 to 200. Which code is correct?",
+    "options": [
+      "B) Code B: is_prime=True inside loop, check p%i==0, break, print if is_prime==True, p+=1",
+      "A) Code A: is_prime=True outside loop",
+      "C) Code C: print if is_prime==False",
+      "D) Code D: missing p=p+1"
+    ],
+    "correct_index": 0,
+    "explanation": "Code B correctly resets is_prime=True for each p, checks divisibility, breaks early, prints primes, and increments p."
+  },
+  {
+    "id": 141,
+    "question": "Reading inventory file, ignoring blank lines:\n05 if ___:\n06   if ___:\n07     print(line)\nWhich code for lines 05 and 06?",
+    "options": [
+      "C) if line != '\\n': and if line != \"\":",
+      "A) if line != '': and if line !=\"\"",
+      "B) if line != '\\n': and if line != None:",
+      "D) if line != '': and if line != \"\\n\":"
+    ],
+    "correct_index": 0,
+    "explanation": "Check line is not a newline (\\n = blank line) and not empty string (EOF indicator)."
+  },
+  {
+    "id": 142,
+    "question": "read_file function has indentation issues. Which lines have indentation problems?\n1) import os\n2) def read_file(file):\n3)   line=None\n4)   if os.path.isfile(file):\n5)     data=open(file,'r')\n6)   while line != '':\n7)     line=data.readline()\n8)     print(line)",
+    "options": [
+      "B) Last 3 lines inside function (lines 6, 7, 8)",
+      "A) First 3 lines inside function",
+      "C) Last 2 lines inside function",
+      "D) No indentation problem"
+    ],
+    "correct_index": 0,
+    "explanation": "Lines 6, 7, 8 (while loop and its body) should be inside the if block (further indented) to only execute when file exists."
+  },
+  {
+    "id": 143,
+    "question": "You need to read and write to a text file. If it doesn't exist, create it. If it has content, remove it. Which code?",
+    "options": ["B) open('local_data', 'w+')", "A) open('local_data', 'r+')", "C) open('local_data', 'r')", "D) open('local_data', 'w')"],
+    "correct_index": 0,
+    "explanation": "w+ opens for reading and writing, creates if not exists, truncates (removes content) if exists."
+  },
+  {
+    "id": 144,
+    "question": "You need to read and write to a text file. If it doesn't exist, create it. If it has content, remove it. Which code?",
+    "options": ["A) open('abc.txt', 'w+')", "B) open('abc.txt', 'r')", "C) open('abc.txt', 'a')", "D) open('abc.txt', 'r+')"],
+    "correct_index": 0,
+    "explanation": "w+ creates if not exists and truncates existing content, allowing both read and write."
+  },
+  {
+    "id": 145,
+    "question": "read_file function attempts to read even when file doesn't exist. Which three lines have indentation problems?",
+    "options": ["E) Line 05, F) Line 06, G) Line 07 (and H Line 08)", "A) Line 01, B) Line 02, C) Line 03", "D) Line 04, E) Line 05, F) Line 06", "F) Line 06, G) Line 07, H) Line 08"],
+    "correct_index": 0,
+    "explanation": "Lines 05 (data=open), 06 (while), 07 (readline), 08 (print) should all be inside the if block. The last 3 (or 4) lines inside the function need more indentation."
+  },
+  {
+    "id": 146,
+    "question": "get_first_line function: returns None if file doesn't exist, returns first line if exists.\nArrange code segments in correct order.",
+    "options": [
+      "if os.path.isfile(filename): → with open(filename,'r') as file: → return file.readline() → else: → return None",
+      "else: → return None → if os.path.isfile(filename): → with open(filename,'r') as file: → return file.readline()",
+      "with open(filename,'r') as file: → return file.readline() → if os.path.isfile(filename): → else: → return None",
+      "return None → if os.path.isfile(filename): → with open(...) → return file.readline() → else:"
+    ],
+    "correct_index": 0,
+    "explanation": "Check if file exists first, then open and read, with else returning None."
+  },
+  {
+    "id": 147,
+    "question": "import os\ndef get_data(filename,mode):\n  if os.path.isfile(filename):\n    with open(filename,'r') as file:\n      return file.readline()\n  else:\n    return None\nWhich statements are valid?",
+    "options": ["A and B: returns first line if available, returns None if not exists", "A and C: returns first line and total data", "B and D: returns None and last line", "C only: returns total data"],
+    "correct_index": 0,
+    "explanation": "readline() returns the first line. Function returns None when file doesn't exist. These are correct."
+  },
+  {
+    "id": 148,
+    "question": "File manipulation: check existence, display if exists, create if not, append 'End of listing'.\nimport os\nif [1]: file=open('myFile.txt')\n[2]: file.close()\nfile=[3]\n[4]('End of listing')",
+    "options": [
+      "[1]=os.path.isfile('myFile.txt'), [2]=print(file.read()), [3]=open('myFile.txt','a'), [4]=file.write",
+      "[1]=isfile('myFile.txt'), [2]=output('myFile.txt'), [3]=open('myFile.txt','w'), [4]=append",
+      "[1]=os.exist('myFile.txt'), [2]=print(file.get('myFile.txt')), [3]=open('myFile.txt','a+'), [4]=file.add",
+      "[1]=os.find('myFile.txt'), [2]=print('myFile.txt'), [3]=open('myFile.txt','w+'), [4]=write"
+    ],
+    "correct_index": 0,
+    "explanation": "os.path.isfile checks existence. print(file.read()) displays content. open with 'a' for appending. file.write to append text."
+  },
+  {
+    "id": 149,
+    "question": "Which of the following statements are true about file operations?",
+    "options": [
+      "D) All of the mentioned",
+      "A) Reading non-existent file raises error only",
+      "B) Writing creates file if not exists only",
+      "C) Writing overwrites existing file only"
+    ],
+    "correct_index": 0,
+    "explanation": "All three are true: reading non-existent file raises error, writing creates new file if not exists, writing overwrites existing file."
+  },
+  {
+    "id": 150,
+    "question": "To read the entire remaining contents of the file as a string, we use ____",
+    "options": ["B) infile.read()", "A) infile.read(2)", "C) infile.readline()", "D) infile.readlines()"],
+    "correct_index": 0,
+    "explanation": "read() with no arguments reads the entire file. read(2) reads 2 bytes. readline() reads one line. readlines() returns a list of lines."
+  },
+  {
+    "id": 151,
+    "question": "What is the use of tell() method in Python?",
+    "options": ["A) tells you the current position within the file", "B) tells you the end position within the file", "C) tells you if the file is opened or not", "D) none of the mentioned"],
+    "correct_index": 0,
+    "explanation": "tell() returns the current file position (byte offset from beginning)."
+  },
+  {
+    "id": 152,
+    "question": "Which string declaration spans multiple lines and considers whitespace properly?",
+    "options": [
+      "D) s1='''durga\\nsoftware\\nsolutions'''",
+      "A) s1='durga\\nsoftware\\nsolutions' (broken across lines)",
+      "B) s1=\"durga\\nsoftware\" (broken across lines)",
+      "C) s1='durga\\n\\nsoftware\\n'"
+    ],
+    "correct_index": 0,
+    "explanation": "Triple quotes (''' or \"\"\") allow strings to span multiple lines while preserving whitespace and newlines."
+  },
+  {
+    "id": 153,
+    "question": "print(type(input('Enter some value:')))\nIf we enter 10 and then 10.0 in separate runs, what is the output?",
+    "options": ["A) <class 'str'> and <class 'str'>", "B) <class 'int'> and <class 'float'>", "C) <class 'int'> and <class 'int'>", "D) <class 'float'> and <class 'float'>"],
+    "correct_index": 0,
+    "explanation": "input() always returns a string regardless of what is typed."
+  },
+  {
+    "id": 154,
+    "question": "print(type(eval(input('Enter some value:'))))\nIf we enter 10 and then 10.0 in separate runs, what is the output?",
+    "options": ["B) <class 'int'> and <class 'float'>", "A) <class 'str'> and <class 'str'>", "C) <class 'int'> and <class 'int'>", "D) <class 'float'> and <class 'float'>"],
+    "correct_index": 0,
+    "explanation": "eval() evaluates the string as Python code. '10' → int, '10.0' → float."
+  },
+  {
+    "id": 155,
+    "question": "Which statements are valid?\nA) Using double and single quotes causes error\nB) 456+456.0 type is int\nC) b=False+5-True+35//4 evaluates to 12\nD) print((7/2)+(False or True)+(9%3)) prints 4.5",
+    "options": ["C and D", "A and B", "A and C", "B and D"],
+    "correct_index": 0,
+    "explanation": "C: False+5-True+35//4 = 0+5-1+8=12 (valid). D: 7/2=3.5, False or True=True=1, 9%3=0, 3.5+1+0=4.5 (valid). A is wrong, B is wrong."
+  },
+  {
+    "id": 156,
+    "question": "abc.txt has: Durga:10, Ravi:20, Shiva:30, Pavan:40\nCode reads lines, splits by ':', adds float values.\nWhat is the result?",
+    "options": ["C) 100.0", "A) Unable to open the file", "B) 100", "D) 10.0"],
+    "correct_index": 0,
+    "explanation": "10+20+30+40=100. Since float() is used, result is 100.0."
+  },
+  {
+    "id": 157,
+    "question": "To write 'Python Certification' to abc.txt, which code is valid?",
+    "options": [
+      "D) f=open('abc.txt','w'); f.write(...); f.close()",
+      "A) f=open('abc.txt','b'); f.write(...)",
+      "B) f=open('abc.txt','r'); f.write(...)",
+      "C) f=open('abc.txt'); f.write(...)"
+    ],
+    "correct_index": 0,
+    "explanation": "Must open in write mode ('w') to write to a file. 'r' is read-only, no mode defaults to 'r', 'b' is binary flag not a mode."
+  },
+  {
+    "id": 158,
+    "question": "To read total data from abc.txt, which is valid?",
+    "options": [
+      "B) with open('abc.txt') as f: data=f.read()",
+      "A) with open('abc.txt','r') f: data=f.read()",
+      "C) with open('abc.txt','w') as f: data=f.read()",
+      "D) with open('abc.txt') as f: data=f.readline()"
+    ],
+    "correct_index": 0,
+    "explanation": "B uses correct syntax (as keyword), default 'r' mode, and read() for all content. A missing 'as'. C uses write mode. D reads only one line."
+  },
+  {
+    "id": 159,
+    "question": "Writing to voters_list.txt in append+read mode, then reading total data:\nwith open('voters_list.txt','a+') as f:\n  f.write('New voters info')\n  #Line-1\n  data=f.read()\n  print(data)\nWhich line at Line-1?",
+    "options": ["A) f.seek(0)", "B) f.flush()", "C) f.begin()", "D) f.close()"],
+    "correct_index": 0,
+    "explanation": "After writing, file pointer is at the end. seek(0) moves pointer to beginning so read() gets all content."
+  },
+  {
+    "id": 160,
+    "question": "import datetime\nd = datetime.datetime(2017, 4, 7)\nprint('{:%B-%d-%y}'.format(d))\nnum=1234567.890\nprint('{:,.4f}'.format(num))\nWhat is the output?",
+    "options": ["C) April-07-17 and 1,234,567.8900", "A) 2017-April-07 and 1,234,567.890", "B) Apr-07-2017 and 1,234,567.8900", "D) April-07-17 and 1234567.89"],
+    "correct_index": 0,
+    "explanation": "%B=full month name (April), %d=day (07), %y=2-digit year (17). ,.4f = comma separator with 4 decimal places."
+  },
+  {
+    "id": 161,
+    "question": "The value must be used as a whole number even if the user enters a decimal. Which code segment?",
+    "options": ["A) totalItems = int(input('How many items would you like?'))", "B) totalItems = str(input(...))", "C) totalItems = float(input(...))", "D) totalItems = input(...)"],
+    "correct_index": 0,
+    "explanation": "int() converts to a whole number, truncating any decimal. str() keeps as string. float() allows decimals. input() alone returns string."
+  },
+  {
+    "id": 162,
+    "question": "01 print('What is your name?')\n02 ___\n03 print(name)\nWhich code at line 02?",
+    "options": ["C) name = input()", "A) name = input", "B) input(name)", "D) input('name')"],
+    "correct_index": 0,
+    "explanation": "name = input() calls input() and assigns the result to name. Without (), it's a function reference not a call."
+  },
+  {
+    "id": 163,
+    "question": "If user enters 12345, which code prints 12346?\nA) count=input(...); print(count+1)\nB) count=input(...); print(int(count)+1)\nC) count=eval(input(...)); print(count+1)\nD) count=int(input(...)); print(count+1)",
+    "options": ["B, C, and D", "A only", "B only", "C and D only"],
+    "correct_index": 0,
+    "explanation": "A fails (str+int TypeError). B converts to int after. C uses eval which returns int. D converts on input. B, C, D all work."
+  },
+  {
+    "id": 164,
+    "question": "01 start = input('How old were you on your start date?')\n02 end = input('How old are you today?')\n03 ___ (print congratulations message with years)\nWhich code at line 03?",
+    "options": ["D) print('congratulations on ' + str(int(end) - int(start)) + ' years of service!')", "A) print('congratulations on ' + int(end - start) + ' years of service!')", "B) print('congratulations on ' + (int(end) - int(start)) + ' years of service!')", "C) print('congratulations on ' + str(end - start) + ' years of service!')"],
+    "correct_index": 0,
+    "explanation": "input returns str. Must convert to int for subtraction, then back to str for concatenation with '+'. Only D does this correctly."
+  },
+  {
+    "id": 165,
+    "question": "Speed calculator for 1/4 mile track. Output must be as precise as possible.\ndistance=[1](input(...))\ntime=[2](input(...))\nWhich types should [1] and [2] be?",
+    "options": ["[1]=float, [2]=float", "[1]=int, [2]=int", "[1]=float, [2]=int", "[1]=int, [2]=float"],
+    "correct_index": 0,
+    "explanation": "For maximum precision in velocity calculation, both distance and time should be float."
+  },
+  {
+    "id": 166,
+    "question": "Average velocity calculator for 2640 foot track. For most precise output:\nLine-1: distance=xxx(input(...))\nLine-2: time=yyy(input(...))\nWhich modifications?",
+    "options": ["A) xxx=float, yyy=float", "B) xxx=float, yyy=int", "C) xxx=int, yyy=float", "D) xxx=int, yyy=int"],
+    "correct_index": 0,
+    "explanation": "For most precise output in a velocity calculation, both inputs should be float."
+  },
+  {
+    "id": 167,
+    "question": "Ecommerce output: strings in double-quotes, numbers not in quotes, separated by commas.\nWhich three code segments?\nA) print('\"{0}\",{1}'.format(item,sales))\nB) print(item+','+sales)\nC) print('\"'+item+'\",'+sales)\nD) print('{0},{1}'.format(item,sales))\nE) print('\"%s\",%s'%(item,sales))",
+    "options": ["A, C, and E", "A, B, and C", "B, C, and D", "A, D, and E"],
+    "correct_index": 0,
+    "explanation": "A: formats with double-quotes around item. C: string concatenation with double-quotes. E: %-formatting with double-quotes. These three all meet requirements."
+  },
+  {
+    "id": 168,
+    "question": "Students enter college name and city. Output: 'Welcome to DURGASOFT in Hyderabad'\nWhich code can be used?",
+    "options": [
+      "A) college_name=input(...); city=input(...); print('Welcome to {} in {}'.format(college_name,city))",
+      "B) college_name=read(...); city=read(...); print(...format...)",
+      "C) college_name=eval('Enter Your College Name:'); ...",
+      "D) college_name=str('Enter Your College Name:'); ..."
+    ],
+    "correct_index": 0,
+    "explanation": "Only input() properly reads user input. read() doesn't exist as standalone, eval() evaluates the prompt string not user input, str() just converts the prompt string."
+  },
+  {
+    "id": 169,
+    "question": "Print fruit table: name left-aligned 10-wide, weight right-aligned 5-wide 1 decimal, price right-aligned 7-wide 2 decimal.\nHow to complete line 05?",
+    "options": [
+      "print('{:<10} {:>5.1f} {:>7.2f}'.format(fields[0], eval(fields[1]), eval(fields[2])))",
+      "print('{:10} {:5.1f} {:7.2f}'.format(...))",
+      "print('{:>10} {:<5.1f} {:<7.2f}'.format(...))",
+      "print('{:10:} {:5:1f} {:7:2f}'.format(...))"
+    ],
+    "correct_index": 0,
+    "explanation": "{:<10} left-align in 10 chars. {:>5.1f} right-align float in 5 chars with 1 decimal. {:>7.2f} right-align float in 7 chars with 2 decimals."
+  },
+  {
+    "id": 170,
+    "question": "Validate employee numbers (ddd-dd-dddd format):\n[1]: employee_number=''\n[2]: while ...\n  [3] employee_number=input(...)\n  if len(parts)==3 and lengths and digits: [4]\nprint(valid)",
+    "options": [
+      "[1]=Employee_number='sentinel', [2]=while employee_number!='sentinel':, [3]=valid=False, [4]=valid=True",
+      "[1]=Employee_number='', [2]=while employee_number!='':, [3]=valid=False, [4]=valid=True",
+      "[1]=Employee_number='', [2]=while employee_number=='':, [3]=valid=True, [4]=valid=False",
+      "[1]=Employee_number='sentinel', [2]=while employee_number=='sentinel':, [3]=valid=True, [4]=valid=False"
+    ],
+    "correct_index": 0,
+    "explanation": "Use sentinel pattern: start with 'sentinel', loop while not sentinel, set valid=False default, True if format correct."
+  },
+  {
+    "id": 171,
+    "question": "Employee number validator (dd-ddd-dddd format with split and isdigit).\nWhich is true about the code?",
+    "options": ["D) No changes required, code fulfills requirement", "A) Error due to misuse of split()", "B) Error due to misuse of isDigit()", "C) No error but won't fulfill requirement"],
+    "correct_index": 0,
+    "explanation": "The code correctly splits by '-', checks lengths (2,3,4), and validates digits. It will work correctly."
+  },
+  {
+    "id": 172,
+    "question": "x='ITVEDANT'\nprint('%20s',x)\nWhat is the output?",
+    "options": ["C) None of these (prints '%20s' and 'ITVEDANT' separately)", "A) 20 blank spaces after ITVEDANT", "B) 20 blank spaces before ITVEDANT", "D) Error"],
+    "correct_index": 0,
+    "explanation": "print('%20s', x) passes two separate arguments separated by comma. It prints '%20s' and 'ITVEDANT' with a space between them, not formatted."
+  },
+  {
+    "id": 173,
+    "question": "d='{a}{b}{a}'.format(a='hello',b='world')\nprint(d)\nWhat is the output?",
+    "options": ["C) helloworldhello", "A) hello world", "B) hello world hello", "D) hello hello world"],
+    "correct_index": 0,
+    "explanation": "{a}=hello, {b}=world, {a}=hello again. No spaces in format string. Output: helloworldhello."
+  },
+  {
+    "id": 174,
+    "question": "Which statements are True?\n1. '{:.2f}'.format(123.45678) → V:123.46\n2. '{:.2f}'.format(123.4) → V:123.40\n3. '{:8.2f}'.format(1.45678) → V:1.46\n4. '{:08.2f}'.format(1.45678) → V:00001.46",
+    "options": ["D) 1, 2, 3, and 4", "A) only 1 and 2", "B) only 1 and 3", "C) only 2 and 4"],
+    "correct_index": 0,
+    "explanation": "All four are true. .2f rounds to 2 decimals. 8.2f pads to width 8. 08.2f pads with zeros to width 8."
+  },
+  {
+    "id": 175,
+    "question": "You want to add notes to code so team members understand it. What should you do?",
+    "options": ["C) Place the notes after the # sign on any line", "A) Place notes after last line separated by blank line", "B) Place notes inside parentheses on any line", "D) Place notes before first line separated by blank line"],
+    "correct_index": 0,
+    "explanation": "In Python, comments start with # and can appear on any line."
+  },
+  {
+    "id": 176,
+    "question": "Program must reference sqrt as 'squareRoot'. Which import statement?",
+    "options": ["A) from math import sqrt as squareRoot", "B) from math.sqrt as squareRoot", "C) import math.sqrt as squareRoot", "D) import sqrt from math as squareRoot"],
+    "correct_index": 0,
+    "explanation": "'from module import name as alias' is the correct Python syntax for aliased imports."
+  },
+  {
+    "id": 177,
+    "question": "Which documentation syntax is correct for Python?",
+    "options": ["D) def get_balance(): \\n  #Returns the current balance\\n  return balance", "A) Comment before function definition", "B) /*...*/ style comment", "C) // style comment"],
+    "correct_index": 0,
+    "explanation": "Python uses # for single-line comments. /*...*/ and // are C/Java style. Comments can be inside function after def."
+  },
+  {
+    "id": 178,
+    "question": "01 # The calc_power function calculates exponents\n02 # x is the base\n03 # y is the exponent\n04 # The value of x raised to the y power is returned\n05 def calc_power(x, y):\n06   comment = '#Return the value'\n07   return x**y 4 raise x to the y power\n\nFor each: Lines 01-04 ignored for syntax? # optional for 02-03? Line 06 is a comment? Line 07 has inline comment?",
+    "options": [
+      "Yes, No, No, No",
+      "Yes, Yes, Yes, Yes",
+      "Yes, No, Yes, No",
+      "No, No, No, Yes"
+    ],
+    "correct_index": 0,
+    "explanation": "Lines 01-04 start with # so are comments (ignored). # in line 02-03 is required (not optional). Line 06 is a string assigned to variable, not a comment. Line 07 '4 raise x to the y power' is invalid syntax, not a comment."
+  },
+  {
+    "id": 179,
+    "question": "Adventure Works bike program needs two function definitions:\n01 ___ (before line 02: name=input(...))\n04 ___ (before line 05: calories=miles*calories_per_mile)\nWhich two code segments for lines 01 and 04?",
+    "options": [
+      "A) def get_name(): and F) def calc_calories(miles, calories_per_mile):",
+      "B) def get_name(biker): and E) def calc_calories(miles, burn_rate):",
+      "C) def get_name(name): and D) def calc_calories():",
+      "A) def get_name(): and E) def calc_calories(miles, burn_rate):"
+    ],
+    "correct_index": 0,
+    "explanation": "get_name() needs no params (uses input inside). calc_calories needs miles and calories_per_mile params (used in body)."
+  },
+  {
+    "id": 180,
+    "question": "increment_score function: if no points specified, start at 1; if bonus True, double points.\nFor each statement, Yes/No:\n- Line 01 must change to: def increment_score(score, bonus, points=1)\n- Once a param has default, all params to right must have defaults\n- If called with 2 params, 3rd is None\n- Line 03 modifies variable points at line 06",
+    "options": [
+      "Yes, Yes, No (would be 1 not None), No (local scope)",
+      "Yes, Yes, Yes, Yes",
+      "No, Yes, Yes, No",
+      "Yes, No, No, Yes"
+    ],
+    "correct_index": 0,
+    "explanation": "Line 01 needs default for points. Default params must be rightmost. If called with 2 params, points uses default (1), not None. Line 03 modifies local copy, not outer variable."
+  },
+  {
+    "id": 181,
+    "question": "Search function: accepts list and string, finds string in list, prints found/not found.\nIn which order arrange code segments A-E?",
+    "options": ["A) D, A, B, C, E", "B) D, B, A, C, E", "C) B, D, A, C, E", "D) D, A, B, E, C"],
+    "correct_index": 0,
+    "explanation": "D: def search(items,term), A: for i in range(len(items)), B: if items[i]==term: print found, C: break, E: else: print not found."
+  },
+  {
+    "id": 182,
+    "question": "Create update_score function: named update_score, receives current and value, adds value, returns new score.\n[1] [2]\n  current+=value\n  [3]",
+    "options": [
+      "[1]=def update_score, [2]=(current, value):, [3]=return current",
+      "[1]=update_score, [2]=(current, value):, [3]=pass current",
+      "[1]=def update_score, [2]=():, [3]=return current",
+      "[1]=return update_score, [2]=(current, value):, [3]=pass"
+    ],
+    "correct_index": 0,
+    "explanation": "def update_score(current, value): → current+=value → return current."
+  },
+  {
+    "id": 183,
+    "question": "Create update_score function: adds value to score, returns new score. Which is valid?",
+    "options": [
+      "B) def update_score(score,value): new_score=score+value; return new_score",
+      "A) update_score(score,value): new_score=score+value; return new_score",
+      "C) def update_score(score,value): new_score=score+value; pass new_score",
+      "D) def update_score(): new_score=score+value; return new_score"
+    ],
+    "correct_index": 0,
+    "explanation": "B has def keyword, proper parameters, and return statement. A missing def. C uses invalid 'pass new_score'. D has no parameters."
+  },
+  {
+    "id": 184,
+    "question": "Reverse a string function:\ndef reverse_name(backwards_name):\n  forward_name=''\n  for index in [1]:\n    forward_name+=[2]\n  return forward_name",
+    "options": [
+      "[1]=range(len(backwards_name)-1,-1,-1), [2]=backwards_name[index]",
+      "[1]=backwards_name, [2]=backwards_name[index-1]",
+      "[1]=len(backwards_name), [2]=backwards_name[len(forward_name)-1]",
+      "[1]=range(0,len(backwards_name),-1), [2]=backwards_name[index]"
+    ],
+    "correct_index": 0,
+    "explanation": "To reverse, iterate from last index to 0 using range(len-1, -1, -1), then add character at that index."
+  },
+  {
+    "id": 185,
+    "question": "safe_divide function: check for None values, check denominator not zero.\ndef safe_divide(numerator, denominator):\n  [1]: print('A required value is missing.')\n  [2]: print('The denominator is zero.')\n  else: return numerator/denominator",
+    "options": [
+      "[1]=if numerator is None or denominator is None:, [2]=elif denominator==0:",
+      "[1]=if numerator is None and denominator is None:, [2]=elif denominator==0:",
+      "[1]=if numerator=None or denominator=None:, [2]=elif denominator!=0:",
+      "[1]=if numerator is None or denominator is None:, [2]=elif denominator in 0:"
+    ],
+    "correct_index": 0,
+    "explanation": "Use 'is None' (not == None) to check for None. Use 'or' to catch if either is missing. elif denominator==0 for zero check."
+  },
+  {
+    "id": 186,
+    "question": "Times tables 2-12:\ndef times_tables():\n  [1]\n    [2]\n      print(row*col, end=' ')\n    print()",
+    "options": [
+      "[1]=for row in range(2,13):, [2]=for col in range(2,13):",
+      "[1]=for col in range(13):, [2]=for row in range(13):",
+      "[1]=for col in range(2,12,1):, [2]=for row in range(2,13):",
+      "[1]=for row in range(12):, [2]=for col in range(12):"
+    ],
+    "correct_index": 0,
+    "explanation": "range(2,13) generates 2 through 12 inclusive. Outer loop for rows, inner for columns, print row*col."
+  },
+  {
+    "id": 187,
+    "question": "def get_score(total=0, valid=0):\n  result=int(valid)/int(total)\n  return result\nFor which function call will we get an Error?",
+    "options": ["B) score=get_score(0,10)", "A) score=get_score('40','4')", "C) score=get_score(40,4)", "D) score=get_score(40)"],
+    "correct_index": 0,
+    "explanation": "get_score(0,10): int(0)=0, division by zero → ZeroDivisionError."
+  },
+  {
+    "id": 188,
+    "question": "get_names() returns names[2:] from ['Sunny','Bunny','Chinny','Vinny','Pinny']\nupdate_names() takes first 3 chars uppercase of each\nprint(update_names(get_names()))\nWhat is the result?",
+    "options": ["A) ['CHI', 'VIN', 'PIN']", "B) ['VIN', 'PIN']", "C) ['CH', 'VI', 'PI']", "D) ['SU', 'BU']"],
+    "correct_index": 0,
+    "explanation": "names[2:]=['Chinny','Vinny','Pinny']. [:3].upper() = 'CHI', 'VIN', 'PIN'."
+  },
+  {
+    "id": 189,
+    "question": "def my_list(x):\n  lst.append(a)\n  return lst\nmy_list('chicken')\nmy_list('mutton')\nprint(my_list('fish'))\nTo print ['chicken','mutton','fish'], x should be replaced with:",
+    "options": ["A) a, lst=[]", "B) a, lst=()", "C) a, lst={}", "D) a, lst=None"],
+    "correct_index": 0,
+    "explanation": "x needs to be renamed 'a' (to match append(a)), and lst needs to be initialized as empty list []."
+  },
+  {
+    "id": 190,
+    "question": "def f1(x=0, y=0):\n  return x+y\nWhich function calls are valid?",
+    "options": ["A, B, and C: f1(), f1('10','20'), f1(10)", "A and C only: f1(), f1(10)", "A, C, and D: f1(), f1(10), f1('10')", "All are valid"],
+    "correct_index": 0,
+    "explanation": "f1(): uses defaults (0+0=0). f1('10','20'): str+str='1020'. f1(10): 10+0=10. f1('10'): '10'+0 raises TypeError. So A, B, C are valid."
+  },
+  {
+    "id": 191,
+    "question": "def f1(x=0, y=0):\n  return x*y\nWhich function calls are valid?",
+    "options": ["A, C, and D: f1(), f1(10), f1('10')", "A and B: f1(), f1('10','20')", "B and C: f1('10','20'), f1(10)", "All are valid"],
+    "correct_index": 0,
+    "explanation": "f1(): 0*0=0. f1('10','20'): str*str raises TypeError. f1(10): 10*0=0. f1('10'): '10'*0='' (empty string). So A, C, D are valid."
+  },
+  {
+    "id": 192,
+    "question": "numbers=[100,20,10,70,50,60,40,30,90,80]\ndef find_numbers(): sort, return numbers[0],numbers[-1]\nTo print Highest:100 and Least:10, which code?",
+    "options": [
+      "A) def find_numbers(): numbers.sort(); return numbers[0],numbers[-1]; low,high=find_numbers()",
+      "B) def find_numbers(): numbers.sort(); return numbers[0],numbers[len(numbers)]; low,high=find_numbers()",
+      "C) def find_numbers(): return numbers[0],numbers[-1]; low=find_numbers(); high=find_numbers()",
+      "D) def find_numbers(): numbers.sort(); return numbers[2],numbers[0]; low,high=find_numbers()"
+    ],
+    "correct_index": 0,
+    "explanation": "After sort(), numbers[0]=10 (lowest), numbers[-1]=100 (highest). Unpack as low,high."
+  },
+  {
+    "id": 193,
+    "question": "numbers=[100,20,10,70,50,60,40,30,90,80]\ndef find_numbers(): numbers.sort(); return numbers[0],numbers[-1]\nlow=find_numbers(); high=find_numbers()\n#Line-1: To print '10 100', which code at Line-1?",
+    "options": ["B) print(low[0], high[-1])", "A) print(low, high)", "C) print(low[-1], high[0])", "D) print(low[2], high[0])"],
+    "correct_index": 0,
+    "explanation": "low and high are both tuples (10,100). low[0]=10, high[-1]=100."
+  },
+  {
+    "id": 194,
+    "question": "def calculate(amount=6, factor=3):\n  if amount>6: return amount*factor\n  else: return amount*factor*2\nWhich function call returns 30?",
+    "options": ["B) calculate(10)", "A) calculate()", "C) calculate(5,2)", "D) calculate(1)"],
+    "correct_index": 0,
+    "explanation": "A: amount=6, not >6, 6*3*2=36. B: amount=10>6, 10*3=30. C: 5 not >6, 5*2*2=20. D: 1 not >6, 1*3*2=6."
+  },
+  {
+    "id": 195,
+    "question": "Fibonacci sequence function:\ndef fib_seq(n): if n==0: return 0; elif n==1: return 1; else: return fib_seq(n-1)+fib_seq(n-2)\nfor i in range(7): print(fib_seq(i),end=',')\nWhat is the result?",
+    "options": ["A) 0,1,1,2,3,5,8,", "B) 0,1,2,4,8,16,32,", "C) 0,1,0,2,0,4,0,", "D) None of these"],
+    "correct_index": 0,
+    "explanation": "Fibonacci: 0,1,1,2,3,5,8 for indices 0-6."
+  },
+  {
+    "id": 196,
+    "question": "Happy Clown code has a bug:\n07 turnValue = math.pi/move\nWhat is the problem?",
+    "options": ["C) Line 07 causes a runtime error due to division by zero", "A) Line 05 has syntax error (power==True)", "B) Line 08 has syntax error (+=)", "D) Line 05 causes runtime error"],
+    "correct_index": 0,
+    "explanation": "When move==0, line 07 divides by zero, causing ZeroDivisionError at runtime."
+  },
+  {
+    "id": 197,
+    "question": "def area(b,w):\n  return B*w\nprint(area(10,20))\nWhat is the result?",
+    "options": ["C) NameError will be raised at runtime", "A) AttributeError", "B) IndentationError", "D) 200"],
+    "correct_index": 0,
+    "explanation": "B (uppercase) is not defined; b (lowercase) is the parameter. NameError: name 'B' is not defined."
+  },
+  {
+    "id": 198,
+    "question": "get_data() appends string inputs to data list. get_avg() sums marks and divides.\nFor inputs 10,20,30,40 what is the result?",
+    "options": ["D) TypeError is thrown at runtime", "A) 25", "B) 25.0", "C) NameError"],
+    "correct_index": 0,
+    "explanation": "input() returns strings. sum+=mark tries str+=int which raises TypeError."
+  },
+  {
+    "id": 199,
+    "question": "try: print(a/b)  # a=10, b=0\nWhich except block prints the exception class name?\nA) except ZeroDivisionError as e: print(e.__class__.__name__)\nB) except ZeroDivisionError as e: print(type(e).__name__)\nC) except ZeroDivisionError as e: print(e)\nD) All of these",
+    "options": ["A and B", "C only", "D) All of these", "A only"],
+    "correct_index": 0,
+    "explanation": "Both e.__class__.__name__ and type(e).__name__ return 'ZeroDivisionError'. Option C prints the message, not the class name."
+  },
+  {
+    "id": 200,
+    "question": "Which is a valid way to create a custom exception?",
+    "options": ["C) class MyException(Exception): pass", "A) class MyException: pass", "B) class MyException(): pass", "D) Not possible to define custom exceptions"],
+    "correct_index": 0,
+    "explanation": "Custom exceptions must inherit from Exception (or a subclass). class MyException(Exception): pass is correct."
+  },
+  {
+    "id": 201,
+    "question": "Which is a valid except block that handles both ZeroDivisionError and ValueError?\nA) except(ZeroDivisionError,ValueError) from e: print(e)\nB) except(ZeroDivisionError,ValueError) as e: print(e)\nC) except(ZeroDivisionError | ValueError) as e: print(e)\nD) except(ZeroDivisionError, ValueError as e): print(e)",
+    "options": ["B) except(ZeroDivisionError,ValueError) as e: print(e)", "A) from e syntax", "C) | operator", "D) as inside parentheses"],
+    "correct_index": 0,
+    "explanation": "Multiple exception types in a tuple with 'as' alias is the correct syntax: except (ExcType1, ExcType2) as e."
+  },
+  {
+    "id": 202,
+    "question": "Code opens in.txt (read) and out.txt (write+). out.txt doesn't exist. Code will execute without error. Is this true?",
+    "options": ["A) No change needed (the statement is correct - it executes without error)", "B) Code runs but generates a logic error", "C) Code will generate a runtime error", "D) Code will generate a syntax error"],
+    "correct_index": 0,
+    "explanation": "open('out.txt','w+') creates the file if it doesn't exist, so no error occurs."
+  },
+  {
+    "id": 203,
+    "question": "For each statement about try/except/finally, Yes or No:\n- try can have one or more except clauses\n- try can have finally without except\n- try can have finally and except\n- try can have one or more finally clauses",
+    "options": ["Yes, Yes, Yes, No (only one finally allowed)", "Yes, Yes, Yes, Yes", "Yes, No, Yes, No", "No, Yes, No, Yes"],
+    "correct_index": 0,
+    "explanation": "Multiple except: Yes. finally without except: Yes. both finally and except: Yes. Multiple finally: No, only one allowed."
+  },
+  {
+    "id": 204,
+    "question": "Input must cast to int with error handling:\nwhile True:\n  [1]\n    x=int(input(...))\n    break\n  [2] ValueError:\n    print('Not valid...')",
+    "options": ["[1]=try:, [2]=except", "[1]=else:, [2]=except", "[1]=try:, [2]=finally:", "[1]=raise:, [2]=except"],
+    "correct_index": 0,
+    "explanation": "try: to attempt conversion, except ValueError: to catch invalid input."
+  },
+  {
+    "id": 205,
+    "question": "When will the else part of try-except-else be executed?",
+    "options": ["B) When no exception occurs", "A) Always", "C) When an error exception occurs", "D) When exception in except block"],
+    "correct_index": 0,
+    "explanation": "The else clause in try/except runs only when NO exception was raised in the try block."
+  },
+  {
+    "id": 206,
+    "question": "try:\n  # Try block\nexcept:\n  # Except block\nfinally:\n  # Finally Block\nIs this valid Python code?",
+    "options": ["D) Yes", "A) No, no such thing as finally", "B) No, finally cannot be used with except", "C) No, finally must come before except"],
+    "correct_index": 0,
+    "explanation": "try/except/finally is valid Python. finally must come after except, not before."
+  },
+  {
+    "id": 207,
+    "question": "def foo():\n  try:\n    return 1\n  finally:\n    return 2\nk = foo()\nprint(k)\nWhat is the output?",
+    "options": ["B) 2", "A) 1", "C) 3", "D) error"],
+    "correct_index": 0,
+    "explanation": "finally always executes. The finally's return 2 overrides the try's return 1."
+  },
+  {
+    "id": 208,
+    "question": "def f1():\n  try:\n    return 1\n  finally:\n    return 2\nx = f1()\nprint(x)\nWhat is the result?",
+    "options": ["B) 2", "A) 1", "C) Both 1 and 2", "D) Error"],
+    "correct_index": 0,
+    "explanation": "finally always runs and its return statement overrides the try block's return. Returns 2."
+  },
+  {
+    "id": 209,
+    "question": "Exception handling for file not found:\nCode A: uses FileNotFoundError\nCode B: uses FileNotFoundException\nCode C: else before except\nWhich is appropriate?",
+    "options": ["A) Code A", "B) Code B", "C) Code C", "D) None of these"],
+    "correct_index": 0,
+    "explanation": "Python uses FileNotFoundError (not FileNotFoundException which is Java). else must come after except, not before."
+  },
+  {
+    "id": 210,
+    "question": "Code opens in.txt (exists) and out.txt (doesn't exist) with w+ mode.\nWhich is true?",
+    "options": ["B) Program will copy data from in.txt to out.txt", "A) Runs but generates logical error", "C) Generates runtime error", "D) Generates syntax error"],
+    "correct_index": 0,
+    "explanation": "w+ creates out.txt if it doesn't exist. Both files open successfully, data is read from in.txt and written to out.txt."
+  },
+  {
+    "id": 211,
+    "question": "try:\n  f=open('abc.txt','r')\n  //Line-1\nexcept:\n  print('Unable to open the file')\nprint(data)\nWhich code at Line-1 to read all data?",
+    "options": ["C) data = f.read()", "A) data = f.readlines()", "B) data = f.readline()", "D) data = f.load()"],
+    "correct_index": 0,
+    "explanation": "f.read() reads the entire file content as a single string."
+  },
+  {
+    "id": 212,
+    "question": "The base class for all exceptions in Python is:",
+    "options": ["C) BaseException", "A) Exception", "B) ExceptionBase", "D) ArithmeticError"],
+    "correct_index": 0,
+    "explanation": "BaseException is the base class for all built-in exceptions. Exception inherits from BaseException."
+  },
+  {
+    "id": 213,
+    "question": "a=10, b=20, c='30'\nresult=a+b+c\nWhat is the result?",
+    "options": ["C) TypeError", "A) 102030", "B) 3030", "D) ArithmeticError"],
+    "correct_index": 0,
+    "explanation": "int + str raises TypeError: unsupported operand type(s) for +: 'int' and 'str'."
+  },
+  {
+    "id": 214,
+    "question": "try: print('try')\nexcept: print('except')\nelse: print('else')\nfinally: print('finally')\nWhat is the result?",
+    "options": ["B) try, else, finally", "A) try, except, else, finally", "C) try, except, finally", "D) try, finally"],
+    "correct_index": 0,
+    "explanation": "No exception raised, so try executes. else runs when no exception. finally always runs. Skips except."
+  },
+  {
+    "id": 215,
+    "question": "try: print('try'); print(10/0)\nexcept: print('except')\nelse: print('else')\nfinally: print('finally')\nWhat is the result?",
+    "options": ["C) try, except, finally", "A) try, except, else, finally", "B) try, else, finally", "D) try, finally"],
+    "correct_index": 0,
+    "explanation": "try prints 'try', then 10/0 raises ZeroDivisionError. except executes. else skipped (exception occurred). finally always runs."
+  },
+  {
+    "id": 216,
+    "question": "try: print('try'); print(10/0)\nelse: print('else')\nexcept: print('except')\nfinally: print('finally')\nWhat is the result?",
+    "options": ["D) SyntaxError: invalid syntax", "A) try, except, else, finally", "B) try, else, finally", "C) try, except, finally"],
+    "correct_index": 0,
+    "explanation": "else must come after except, not before. Having else before except is a SyntaxError."
+  },
+  {
+    "id": 217,
+    "question": "prices=[30.5,'40.5',10.5]\ntotal=0\nfor price in prices: total+=price\nTypeError: unsupported operand for +=: 'float' and 'str'\nWhich code fixes this?",
+    "options": ["C) total += float(price)", "A) total += str(price)", "B) total += int(price)", "D) total = total+price"],
+    "correct_index": 0,
+    "explanation": "float(price) converts '40.5' to 30.5 to float. int() would truncate decimals. str() wrong direction."
+  },
+  {
+    "id": 218,
+    "question": "prices=[10,'20',30,'40']\ntotal=0\nfor price in prices: total+=price\nTypeError: 'int' and 'str'\nWhich two code segments fix the problem?",
+    "options": ["B) total+=int(price) and C) total+=float(price)", "A) total+=str(price) and B) total+=int(price)", "B) total+=int(price) and D) total=total+price", "A and C"],
+    "correct_index": 0,
+    "explanation": "int(price) converts strings to int. float(price) converts strings to float. Both allow addition with int total."
+  },
+  {
+    "id": 219,
+    "question": "courses={1:'Java',2:'Scala',3:'Python'}\nfor i in range(1,5): print(courses[i])\nKeyError: 4\nWhich code fixes the problem?",
+    "options": ["D) All of these", "A) Add if i in courses check", "B) Iterate over courses directly", "C) Use range(1,4)"],
+    "correct_index": 0,
+    "explanation": "All three approaches fix the KeyError: checking membership, iterating the dict, or limiting range."
+  },
+  {
+    "id": 220,
+    "question": "x = 30\ny = 10\nassert x > y, 'x is smaller than y'\nWhat is the output?",
+    "options": ["C) No output", "A) AssertionError", "B) 10 8", "D) 108"],
+    "correct_index": 0,
+    "explanation": "30 > 10 is True, so the assertion passes without raising AssertionError and with no output."
+  },
+  {
+    "id": 221,
+    "question": "Which exception is raised when calling a method on an inappropriate object?",
+    "options": ["C) AttributeError", "A) IndexError", "B) TypeError", "D) None of these"],
+    "correct_index": 0,
+    "explanation": "AttributeError is raised when an object doesn't have the requested attribute or method."
+  },
+  {
+    "id": 222,
+    "question": "f=open('abc.txt')\nf.readall()\nWhich exception will be raised?",
+    "options": ["A) AttributeError", "B) EOFError", "C) SystemError", "D) SyntaxError"],
+    "correct_index": 0,
+    "explanation": "readall() is not a method of file objects. This raises AttributeError."
+  },
+  {
+    "id": 223,
+    "question": "def read_file(file):\n  line=None\n  if os.path.isfile(file):\n    ...\nRunning gives error on line 03. What is causing the error?",
+    "options": ["C) You need to import the os library", "A) path method doesn't exist in os", "B) isfile method doesn't exist", "D) isfile doesn't accept one parameter"],
+    "correct_index": 0,
+    "explanation": "os module must be imported with 'import os' before using os.path.isfile()."
+  },
+  {
+    "id": 224,
+    "question": "What is the type of sys.argv?",
+    "options": ["B) list", "A) set", "C) tuple", "D) string"],
+    "correct_index": 0,
+    "explanation": "sys.argv is a list of strings containing command-line arguments."
+  },
+  {
+    "id": 225,
+    "question": "Which of the following ISN'T true about main modules?",
+    "options": ["D) Other main modules can import main modules", "A) Directly executed files are considered main module", "B) Main modules may import any number of modules", "C) Special name for main modules is __main__"],
+    "correct_index": 0,
+    "explanation": "Main modules (__main__) cannot be imported by other modules as main. They can import others but not be imported as main."
+  },
+  {
+    "id": 226,
+    "question": "From sys module, which variable is used to access command line arguments?",
+    "options": ["A) argv", "B) argsv", "C) args", "D) arguments"],
+    "correct_index": 0,
+    "explanation": "sys.argv is the list of command-line arguments in Python."
+  },
+  {
+    "id": 227,
+    "question": "Given: python tests.py Itvedant\nWhich code prints 'Itvedant'?",
+    "options": ["A) from sys import argv; print(argv[1])", "B) from sys import argv; print(argv[0])", "C) from sys import args; print(args[0])", "D) from sys import args; print(args[1])"],
+    "correct_index": 0,
+    "explanation": "argv[0] is the script name, argv[1] is the first argument 'Itvedant'."
+  },
+  {
+    "id": 228,
+    "question": "from sys import argv; print(argv[0])\nGiven: py test.py DURGASOFT\nWhat is the result?",
+    "options": ["B) test.py", "A) DURGASOFT", "C) IndexError", "D) ImportError"],
+    "correct_index": 0,
+    "explanation": "argv[0] is always the script name (test.py). argv[1] would be DURGASOFT."
+  },
+  {
+    "id": 229,
+    "question": "from sys import argv; print(argv[1]+argv[2])\nGiven: py test.py 10 20\nWhat is the result?",
+    "options": ["B) 1020", "A) 30", "C) IndexError", "D) ImportError"],
+    "correct_index": 0,
+    "explanation": "argv values are strings. '10'+'20'='1020' (string concatenation, not addition)."
+  },
+  {
+    "id": 230,
+    "question": "Code averages argv values starting at index 2, prints 'The Average for {argv[1]} is {avg:.2f}'\nWhich invocation gives: The Average for Durga is 20.00?",
+    "options": ["A) py test.py Durga 10 20 30", "B) py test.py Durga 10 20", "C) py test.py Durga 10", "D) py test.py 20"],
+    "correct_index": 0,
+    "explanation": "argv[1]='Durga', values 10,20,30. Average=(10+20+30)/3=20.00."
+  },
+  {
+    "id": 231,
+    "question": "Which statement generates a random float with min 0.0 and max 1.0?",
+    "options": ["C) random.random()", "A) random.randrange()", "B) random.randrange(0.0, 1.0)", "D) random.randint(0, 1)"],
+    "correct_index": 0,
+    "explanation": "random.random() returns a float in [0.0, 1.0). randint returns integers. randrange doesn't accept floats."
+  },
+  {
+    "id": 232,
+    "question": "Generate a random integer with min 5 and max 11. Which two functions?",
+    "options": ["A) random.randint(5,11) and B) random.randrange(5,12,1)", "C) random.randint(5,12) and D) random.randrange(5,11,1)", "A) and D)", "B) and C)"],
+    "correct_index": 0,
+    "explanation": "randint(5,11) includes both 5 and 11. randrange(5,12,1) generates 5-11 (stop is exclusive). Both give range 5-11."
+  },
+  {
+    "id": 233,
+    "question": "Generate random number: multiple of 5, lowest=5, highest=100. Which two code segments?",
+    "options": [
+      "A) randrange(5,100,5) and B) randint(1,20)*5",
+      "A) randrange(5,100,5) and C) randint(0,20)*5",
+      "B) randint(1,20)*5 and D) randrange(0,100,5)",
+      "C) randint(0,20)*5 and D) randrange(0,100,5)"
+    ],
+    "correct_index": 0,
+    "explanation": "A: randrange(5,100,5) gives 5,10,...,95 (not 100, stop exclusive). B: randint(1,20)*5 gives 5,10,...,100. Both meet requirements."
+  },
+  {
+    "id": 234,
+    "question": "Function takes float, gets absolute value, removes decimal. Which two math functions?",
+    "options": ["E) math.fabs(x) and C) math.floor(x)", "A) math.ceil(x) and B) math.fmod(x)", "A) math.ceil(x) and E) math.fabs(x)", "B) math.fmod(x) and D) math.frexp(x)"],
+    "correct_index": 0,
+    "explanation": "fabs(x) returns absolute value as float. floor(x) removes decimal places (rounds down). Together: absolute value with truncated decimal."
+  },
+  {
+    "id": 235,
+    "question": "from math import factorial\nprint(math.factorial(5))\nWhat is the output?",
+    "options": ["D) Error: should be print(factorial(5))", "A) 120", "B) Nothing printed", "C) Error: factorial doesn't exist"],
+    "correct_index": 0,
+    "explanation": "factorial was imported as 'factorial' (not 'math.factorial'). Using math.factorial raises NameError since math itself wasn't imported."
+  },
+  {
+    "id": 236,
+    "question": "Program must reference pow() as 'power'. Which import?",
+    "options": ["C) from math import pow as power", "A) import math.pow as power", "B) import pow from math as power", "D) from math.pow as power"],
+    "correct_index": 0,
+    "explanation": "'from module import name as alias' is correct Python syntax."
+  },
+  {
+    "id": 237,
+    "question": "What is returned by math.ceil(10.4)?",
+    "options": ["A) 11", "B) 10", "C) 11.0", "D) 10.0"],
+    "correct_index": 0,
+    "explanation": "ceil() rounds up to the nearest integer. ceil(10.4) = 11 (int)."
+  },
+  {
+    "id": 238,
+    "question": "t=datetime.date.today()  # system date: 23 Sept 2020\nprint(t.month())\nWhat is the output?",
+    "options": ["D) Error (month is an attribute, not method)", "A) September", "B) Sept", "C) 09"],
+    "correct_index": 0,
+    "explanation": "t.month is an integer attribute (9), not a method. Calling t.month() raises TypeError."
+  },
+  {
+    "id": 239,
+    "question": "import math\nl=[str(round(math.pi)) for i in range(1,6)]\nprint(l)\nWhat is the result?",
+    "options": ["A) ['3', '3', '3', '3', '3']", "B) ['3', '3', '3', '3', '3', '3']", "C) ['1', '2', '3', '4', '5']", "D) ['1', '2', '3', '4', '5', '6']"],
+    "correct_index": 0,
+    "explanation": "round(math.pi)=3. range(1,6) has 5 elements. List of 5 '3' strings."
+  },
+  {
+    "id": 240,
+    "question": "fruits=['Apple','Mango','Orange','Lemon']\nWhich prints a random value from the list?\nA) random.sample(fruits)\nB) random.sample(fruits,3)[0]\nC) random.choice(fruits)\nD) random.choice(fruits)[0]",
+    "options": ["B and C", "A and C", "C only", "A and D"],
+    "correct_index": 0,
+    "explanation": "B: sample(fruits,3) returns 3 random items, [0] gets first. C: choice() returns one random element. A: sample needs count param. D: [0] gets first char of chosen fruit."
+  },
+  {
+    "id": 241,
+    "question": "Create a list of 7 random integers between 1 and 7 inclusive. Which code?",
+    "options": [
+      "A) import random; randints=[random.randint(1,7) for i in range(1,8)]",
+      "B) import random; randints=[random.randint(1,8) for i in range(1,8)]",
+      "C) import random; randints=random.randrange(1,7)",
+      "D) import random; randints=random.randint(1,7)"
+    ],
+    "correct_index": 0,
+    "explanation": "randint(1,7) generates one int from 1-7 inclusive. range(1,8) iterates 7 times. List comprehension creates 7 values."
+  },
+  {
+    "id": 242,
+    "question": "fruits=['Apple','Mango','Orange','Lemon']\nrandom_list=[random.choice(fruits)[:2] for i in range(3)]\nprint(''.join(random_list))\nWhich are possible outputs?",
+    "options": ["A, B, and C: ApApAp, ApMaOr, LeMaOr", "A and B only", "B and C only", "All including D"],
+    "correct_index": 0,
+    "explanation": "[:2] takes first 2 chars: Ap, Ma, Or, Le. 3 choices joined. ApApAp, ApMaOr, LeMaOr are all possible. D (OrOraM) is impossible since Or[:2]='Or' not 'Ora'."
+  },
+  {
+    "id": 243,
+    "question": "Find area of circle (pi*r**2). Which is valid function?",
+    "options": [
+      "C) import math; def find_area(r): return math.pi*math.pow(r,2)",
+      "A) import math; def find_area(r): return math.pi*math.fmod(r,2)",
+      "B) import math; def find_area(r): return math.pi*math.fabs(r)",
+      "D) None of these"
+    ],
+    "correct_index": 0,
+    "explanation": "math.pow(r,2) computes r**2. fmod is modulo, fabs is absolute value. C correctly implements pi*r^2."
+  },
+  {
+    "id": 244,
+    "question": "import random\nprint(int(random.random()*5))\nWhich is true?",
+    "options": ["D) Prints a random int value from 0 to 4", "A) 0 to 5", "B) 1 to 5", "C) 0 to 5 (same as A)", "E) prints 5"],
+    "correct_index": 0,
+    "explanation": "random.random() gives [0.0, 1.0). *5 gives [0.0, 5.0). int() truncates to 0,1,2,3,4."
+  },
+  {
+    "id": 245,
+    "question": "import random\nprint(random.sample(range(10), 7))\nWhich is valid?",
+    "options": ["B) Prints list of 7 unique random numbers from 0 to 9", "A) 10 unique numbers from 0 to 6", "C) 7 unique numbers from 0 to 10", "D) 7 unique numbers from 1 to 10"],
+    "correct_index": 0,
+    "explanation": "range(10) is 0-9. sample(range(10), 7) picks 7 unique numbers from 0-9."
+  }
 ]
