@@ -10,14 +10,14 @@ let pointsPerQuestion;
 let questionResults = [];
 
 fetch("questions3.json")
-.then(res => res.json())
-.then(data => {
-  questions = data;
-  pointsPerQuestion = Math.floor(totalPoints / questions.length);
-  questionResults = new Array(questions.length).fill(null);
-  createStatusBoxes();
-  loadQuestion();
-});
+  .then(res => res.json())
+  .then(data => {
+    questions = data;
+    pointsPerQuestion = Math.floor(totalPoints / questions.length);
+    questionResults = new Array(questions.length).fill(null);
+    createStatusBoxes();
+    loadQuestion();
+  });
 
 function createStatusBoxes() {
   let container = document.getElementById("questionStatus");
@@ -91,7 +91,7 @@ function checkAnswer(el) {
   if (q.explanation) {
     document.getElementById("feedback").innerHTML = `
       <div class="explanation">
-        <strong>💡 Explanation:</strong> ${q.explanation}
+        <strong>Explanation:</strong> ${q.explanation}
       </div>`;
   }
 }
